@@ -1,9 +1,7 @@
-import { store } from '@/store';
 import { formatNumber } from './format-number';
+import { Distance } from 'common/models/types/distance';
 
-export function formatDistance(input: number, symbol?: boolean) {
-    const distance = store.getters['setting/setting']('distance');
-
+export function formatDistance(input: number, distance: Distance, symbol: boolean = true) {
     let converted;
 
     if (distance === 'mi') {
@@ -14,5 +12,8 @@ export function formatDistance(input: number, symbol?: boolean) {
 
     const formatted = formatNumber(converted);
 
+    if (!symbol) {
+        return formatted;
+    }
     return distance === 'km' ? `${formatted} KM` : `${formatted} mi`;
 }

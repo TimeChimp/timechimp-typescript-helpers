@@ -1,11 +1,7 @@
 import accounting from 'accounting';
-import { store } from '@/store';
+import { NumberFormat } from 'common/models/types/number-format';
 
-export function formatNumber(input: number) {
-    let numberFormat = 'comma';
-
-    numberFormat = store.getters['setting/setting']('numberFormat');
-
+export function formatNumber(input: number, numberFormat: NumberFormat = 'comma') {
     switch (numberFormat) {
         case 'dot':
             return accounting.formatNumber(input, 2, '.', ',');

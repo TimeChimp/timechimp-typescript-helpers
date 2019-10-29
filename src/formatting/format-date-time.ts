@@ -1,10 +1,8 @@
-import { store } from '@/store';
-import { LocaleDate } from '@/common/utils/date/locale-date';
+import { LocaleDate } from 'common/utils/locale-date';
+import { DateObject } from 'common/models/interfaces/date-object';
+import { TcDate } from 'common/utils/date';
 
-export function formatDateTime(input: Date) {
-    let dateFormat = 'yyyy/MM/dd';
-
-    dateFormat = store.getters['setting/setting']('dateFormat');
-
-    return new LocaleDate(input).format(dateFormat + ' h:mm');
+export function formatDateTime(input: Date, dateObject: DateObject) {
+    const unix = new TcDate(input).toDate();
+    return new LocaleDate(unix, dateObject).toDate();
 }

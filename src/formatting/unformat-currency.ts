@@ -1,10 +1,7 @@
 import accounting from 'accounting';
+import { NumberFormat } from 'common/models/types/number-format';
 
-import { store } from '@/store';
-
-export function unformatCurrency(input: string): number {
-    const numberFormat = store.getters['setting/setting']('numberFormat');
-
+export function unformatCurrency(input: string, numberFormat: NumberFormat = 'comma'): number {
     switch (numberFormat) {
         case 'dot':
             return accounting.unformat(input, '.');

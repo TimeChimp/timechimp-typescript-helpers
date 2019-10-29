@@ -15,8 +15,8 @@ export class LocaleDate {
     }
 
     public toDate(): string {
-        const { language, formatString, timezone } = this.dateObject;
-        return format(this.date, formatString, {
+        const { dateFormat, timezone } = this.dateObject;
+        return format(this.date, dateFormat, {
             timeZone: timezone
             // TODO: Add locale - https://github.com/marnusw/date-fns-tz#time-zone-formatting
         });

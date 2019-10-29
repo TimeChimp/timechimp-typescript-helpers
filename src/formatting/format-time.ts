@@ -1,19 +1,13 @@
-import { store } from '@/store';
-
 import { formatNumber } from './format-number';
-import { TimeFormat } from '@/common/models/types/time-format';
+import { TimeFormat } from 'common/models/types/time-format';
 
-export function formatTime(seconds: number, format?: TimeFormat) {
+export function formatTime(seconds: number, format: TimeFormat) {
     if (isNaN(seconds)) {
         seconds = 0;
     }
 
     let time = '';
     let isNegative = false;
-
-    if (!format) {
-        format = store.getters['setting/setting']('timeFormat');
-    }
 
     if (seconds < 0) {
         isNegative = true;
