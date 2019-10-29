@@ -25,8 +25,6 @@ export { tryParseFloat }       from './helpers/try-parse-float';
 export { slugify }             from './helpers/slugify';
 export { compareArray }        from './helpers/compare-array';
 export { hasSubArray }         from './helpers/has-sub-array';
-export { getTenantPathPrefix } from './helpers/path';
-export { resolveTenant }       from './helpers/resolvers';
 export { maxChar }             from './helpers/max-char';
 export { roundNumber }         from './helpers/round-number';
 export { enumToSelectList }    from './helpers/enum-to-select-list';

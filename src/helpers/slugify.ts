@@ -1,6 +1,6 @@
 import { maxChar } from './max-char';
 
-export function slugify(str, separator, max) {
+export function slugify(str: string, separator: any, max: number) {
     if (!str) {
         return '';
     }

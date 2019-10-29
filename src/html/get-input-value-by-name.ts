@@ -3,6 +3,7 @@ export function getInputValueByName(name: string) {
     if (field && field.length > 0) {
         return (field[0] as HTMLInputElement).value;
     }
+    return null;
 }
 
 export function setInputValueByName(name: string, value: string) {
