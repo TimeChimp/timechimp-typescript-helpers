@@ -20,8 +20,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Authenticate with GitHub package registry
-      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+    - name: Authenticate with npm package registry
+      run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
     - name: Install
       run: npm install
     - name: Test
@@ -29,6 +29,7 @@ jobs:
     - name: Build
       run: npm run build
     - name: Publish
-      run: npm publish
+      run: npm publish --access public
       env:
         CI: true
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
