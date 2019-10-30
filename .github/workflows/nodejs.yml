@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Authenticate with npm package registry
-      run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
+      run: npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
     - name: Install
       run: npm install
     - name: Test
