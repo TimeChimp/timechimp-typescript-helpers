@@ -1,5 +1,5 @@
 import { formatNumber } from './format-number';
-import { TimeFormat } from 'common/models/types/time-format';
+import { TimeFormat } from '@/common/models/types/time-format';
 
 export function formatTime(seconds: number, format: TimeFormat) {
     if (isNaN(seconds)) {

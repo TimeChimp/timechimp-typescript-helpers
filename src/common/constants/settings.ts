@@ -1,6 +1,7 @@
-import { CurrencyObject } from 'common/models/interfaces/currency-object';
+import { CurrencyObject } from '@/common/models/interfaces/currency-object';
+import { TimezoneObject } from '@/common/models/interfaces/timezone-object';
 
-export function getTimezones() {
+export function getTimezones(): TimezoneObject[] {
     return [
         {
             id: 'Dateline Standard Time',

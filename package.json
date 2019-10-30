@@ -1,5 +1,5 @@
 {
-  "name": "helper-functions",
+  "name": "@timechimp-bv/helper-functions",
   "version": "0.1.0",
   "license": "MIT",
   "author": "TimeChimp Dev",
@@ -13,7 +13,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint"
+    "lint": "tsdx lint",
+    "publish": "npm publish --access public"
   },
   "peerDependencies": {},
   "husky": {

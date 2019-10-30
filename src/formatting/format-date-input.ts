@@ -1,8 +1,8 @@
-import { TcDate } from 'common/utils/date';
+import { TcDate } from '@/common/utils/date';
 import { formatFloat } from './format-float';
 import { formatTime } from './format-time';
-import { DateObject } from 'common/models/interfaces/date-object';
-import { LocaleDate } from 'common/utils/locale-date';
+import { DateObject } from '@/common/models/interfaces/date-object';
+import { LocaleDate } from '@/common/utils/locale-date';
 
 export function formatDateInput(input: any, dateFormat: DateObject, date?: Date) {
     const float = formatFloat(input, true);

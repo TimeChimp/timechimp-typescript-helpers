@@ -1,16 +1,14 @@
 import { fromUnixTime } from 'date-fns';
-import { toDate, format } from 'date-fns-tz';
-import { DateObject } from 'common/models/interfaces/date-object';
+import { format, utcToZonedTime } from 'date-fns-tz';
+import { DateObject } from '@/common/models/interfaces/date-object';
 
 export class LocaleDate {
     private date: Date;
     private dateObject: DateObject;
 
     public constructor(input: number, dateObject: DateObject) {
-        const utc = fromUnixTime(input);
-        this.date = toDate(utc, {
-            timeZone: dateObject.timezone
-        });
+        const utc = fromUnixTime(input);      
+        this.date = utcToZonedTime(utc, dateObject.timezone);     
         this.dateObject = dateObject
     }
 

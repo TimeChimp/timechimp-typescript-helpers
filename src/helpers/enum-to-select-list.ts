@@ -1,4 +1,4 @@
-import { SelectItem } from 'common/models/interfaces/select-item';
+import { SelectItem } from '@/common/models/interfaces/select-item';
 
 
 export function enumToSelectList(myEnum: any): SelectItem[] {

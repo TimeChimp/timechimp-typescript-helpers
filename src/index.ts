@@ -3,7 +3,6 @@ import './helpers/sum';
 // formatting
 export { formatCurrency }      from './formatting/format-currency';
 export { unformatCurrency }    from './formatting/unformat-currency';
-export { formatDateTime }      from './formatting/format-date-time';
 export { formatDate }          from './formatting/format-date';
 export { formatFloat }         from './formatting/format-float';
 export { formatNumber }        from './formatting/format-number';

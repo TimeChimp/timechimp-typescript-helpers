@@ -1,11 +1,11 @@
 import accounting from 'accounting';
 
-import { getCurrencies } from 'common/constants/settings';
-import { CurrencyObject } from 'common/models/interfaces/currency-object';
-import { NumberFormat } from 'common/models/types/number-format';
+import { getCurrencies } from '@/common/constants/settings';
+import { CurrencyObject } from '@/common/models/interfaces/currency-object';
+import { NumberFormat } from '@/common/models/types/number-format';
 
 export function formatCurrency(input: number, currency: CurrencyObject, numberFormat: NumberFormat): string {
-    const currencies = getCurrencies() ;
+    const currencies = getCurrencies();
 
     const currencyObject = currencies.find((x) => x.id === currency.id) || {
         id: 'EUR',

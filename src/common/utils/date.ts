@@ -1,6 +1,6 @@
-import { Time } from 'common/models/types/time';
-import { BetweenDate } from 'common/models/types/between-date';
-import { WeekStartDay } from 'common/models/types/week-start-day';
+import { Time } from '@/common/models/types/time';
+import { BetweenDate } from '@/common/models/types/between-date';
+import { WeekStartDay } from '@/common/models/types/week-start-day';
 import {
     addMonths,
     addWeeks,
@@ -70,10 +70,10 @@ export class TcDate {
 
     public constructor(input?: any) {
         if (!input) {
-            const utc = new Date().getTime();
+            const utc = new Date();
             this.internalDate = getUnixTime(utc);
         } else {
-            const utc = new Date(input).getTime();
+            const utc = new Date(input);       
             this.internalDate = getUnixTime(utc);
         }
     }
