@@ -1,6 +1,6 @@
 import { formatNumber } from './format-number';
-import { Distance } from '@/common/models/types/distance';
-import { NumberFormat } from '@/common/models/types/number-format';
+import { Distance } from '../common/models/types/distance';
+import { NumberFormat } from '../common/models/types/number-format';
 
 export function formatDistance(
     input: number, 

@@ -1,5 +1,5 @@
 import accounting from 'accounting';
-import { NumberFormat } from '@/common/models/types/number-format';
+import { NumberFormat } from '../common/models/types/number-format';
 
 export function formatNumber(input: number, precision: number = 2, numberFormat: NumberFormat = 'comma') {
     switch (numberFormat) {

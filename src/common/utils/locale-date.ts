@@ -1,6 +1,6 @@
 import { fromUnixTime } from 'date-fns';
 import { format, utcToZonedTime } from 'date-fns-tz';
-import { DateObject } from '@/common/models/interfaces/date-object';
+import { DateObject } from '../models/interfaces/date-object';
 
 export class LocaleDate {
     private date: Date;

@@ -1,5 +1,5 @@
-import { CurrencyObject } from '@/common/models/interfaces/currency-object';
-import { TimezoneObject } from '@/common/models/interfaces/timezone-object';
+import { CurrencyObject } from '../models/interfaces/currency-object';
+import { TimezoneObject } from '../models/interfaces/timezone-object';
 
 export function getTimezones(): TimezoneObject[] {
     return [

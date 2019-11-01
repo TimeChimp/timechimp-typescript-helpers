@@ -1,6 +1,6 @@
-import { Time } from '@/common/models/types/time';
-import { BetweenDate } from '@/common/models/types/between-date';
-import { WeekStartDay } from '@/common/models/types/week-start-day';
+import { Time } from '../models/types/time';
+import { BetweenDate } from '../models/types/between-date';
+import { WeekStartDay } from '../models/types/week-start-day';
 import {
     addMonths,
     addWeeks,
