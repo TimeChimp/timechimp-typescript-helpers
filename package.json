@@ -18,7 +18,7 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "publish:npm": "npm version patch && npm publish --access public"
+    "publish:npm": "npm run build && npm version patch && npm publish --access public"
   },
   "peerDependencies": {},
   "husky": {
