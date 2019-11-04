@@ -30,6 +30,10 @@ export { enumToSelectList }    from './helpers/enum-to-select-list';
 export { isMobile }            from './helpers/is-mobile';
 export { sortCaseInsensitive } from './helpers/sort-case-insensitive';
 
+// date
+export { TcDate } from './common/utils/date';
+export { LocaleDate } from './common/utils/locale-date';
+
 // html
 export {
     getInputValueByName,
