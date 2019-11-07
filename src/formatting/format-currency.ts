@@ -4,10 +4,10 @@ import { getCurrencies } from '../common/constants/settings';
 import { CurrencyObject } from '../common/models/interfaces/currency-object';
 import { NumberFormat } from '../common/models/types/number-format';
 
-export function formatCurrency(input: number, currency: CurrencyObject, numberFormat: NumberFormat): string {
+export function formatCurrency(input: number, currency?: CurrencyObject, numberFormat: NumberFormat = 'comma'): string {
     const currencies = getCurrencies();
 
-    const currencyObject = currencies.find((x) => x.id === currency.id) || {
+    const currencyObject = currencies.find((x) => x.id === (currency && currency.id)) || {
         id: 'EUR',
         name: 'Euro',
         fractionSize: 2,
