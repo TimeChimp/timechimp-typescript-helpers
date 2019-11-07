@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/timechimp-bv/helper-functions.git"
   },
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "author": "TimeChimp Dev",
   "main": "dist/index.js",
