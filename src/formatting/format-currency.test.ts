@@ -44,4 +44,11 @@ describe('Format currency', () => {
     const result = formatCurrency(amount, usd, 'comma');
     expect(result).toEqual('€100,00');
   });
+
+  it('Renders the eur format if no params', () => {
+    const amount = 100;
+
+    const result = formatCurrency(amount);
+    expect(result).toEqual('€100,00');
+  });
 });
