@@ -1,6 +1,6 @@
-export interface IDateRange {
-    startDate: Date;
-    endDate: Date;
+export interface DateRange {
+    startDate: number;
+    endDate: number;
     title: string;
     view: string;
 }
