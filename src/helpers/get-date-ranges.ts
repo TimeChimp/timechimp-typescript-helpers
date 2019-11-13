@@ -1,6 +1,6 @@
-import { DateRange } from '../models/interfaces/date-range';
-import { DateLocales } from '../models/interfaces/date-locales';
-import { TcDate } from './date';
+import { DateRange } from '../common/models/interfaces/date-range';
+import { DateLocales } from '../common/models/interfaces/date-locales';
+import { TcDate } from '../common/utils/date';
 
 function getDefaults(dateLocales?: DateLocales): DateLocales {
     let locales = dateLocales;

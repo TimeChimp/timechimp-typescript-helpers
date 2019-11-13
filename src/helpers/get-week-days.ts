@@ -1,6 +1,6 @@
-import { TcDate } from './date';
-import { LocaleDate } from './locale-date';
-import { DateObject } from '../models/interfaces/date-object';
+import { TcDate } from '../common/utils/date';
+import { LocaleDate } from '../common/utils/locale-date';
+import { DateObject } from '../common/models/interfaces/date-object';
 
 const defaults: DateObject = {
     language: 'nl',

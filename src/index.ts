@@ -1,5 +1,3 @@
-import './helpers/sum';
-
 // formatting
 export { formatCurrency }      from './formatting/format-currency';
 export { unformatCurrency }    from './formatting/unformat-currency';
@@ -33,6 +31,9 @@ export { sortCaseInsensitive } from './helpers/sort-case-insensitive';
 // date
 export { TcDate } from './common/utils/date';
 export { LocaleDate } from './common/utils/locale-date';
+export { getDateRanges } from './helpers/get-date-ranges';
+export { getMonthDays } from './helpers/get-month-days';
+export { getWeekDays } from './helpers/get-week-days';
 
 // html
 export {

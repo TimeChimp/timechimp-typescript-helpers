@@ -1,4 +1,4 @@
-import { TcDate } from './date';
+import { TcDate } from '../common/utils/date';
 
 
 export function getMonthDays(date: Date) {
