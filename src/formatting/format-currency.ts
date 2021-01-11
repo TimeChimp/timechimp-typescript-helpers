@@ -6,30 +6,16 @@ import { NumberFormat } from '../common/models/types/number-format';
 
 export function formatCurrency(
   input: number,
-  currency?: CurrencyObject,
+  currency: string = 'EUR',
   numberFormat: NumberFormat = 'comma'
 ): string {
   const currencies = getCurrencies();
 
-  const currencyObject = currencies.find(
-    x => x.id === (currency && currency.id)
-  ) || {
-    id: 'EUR',
-    name: 'Euro',
-    fractionSize: 2,
-    symbol: {
-      grapheme: '€',
-      template: '$1',
-      rtl: false,
-    },
-    uniqSymbol: {
-      grapheme: '€',
-      template: '$1',
-      rtl: false,
-    },
-  };
-
-  const { symbol, fractionSize } = currencyObject;
+  const currencyObject = currencies.find(x => x.id === currency);
+  if (!currencyObject) {
+    throw new Error('Currency not found');
+  }
+  const { symbol, fractionSize }: CurrencyObject = currencyObject;
 
   let result;
   if (symbol) {
