@@ -19,7 +19,7 @@
     "test": "tsdx test",
     "lint": "tsdx lint src",
     "lint:fix": "tsdx lint src --fix",
-    "publish:npm": "npm run build && npm version patch && npm publish --access public"
+    "release": "npm run build && np --no-2fa"
   },
   "peerDependencies": {},
   "husky": {
@@ -38,6 +38,7 @@
     "@types/accounting": "^0.4.1",
     "@types/jest": "^26.0.20",
     "husky": "^4.3.7",
+    "np": "^7.2.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
