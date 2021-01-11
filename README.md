@@ -1,6 +1,6 @@
-# TimeChimp Helper functions
+# TimeChimp Typescript Helpers
 
-This project contains general helper functions / formatting functions written in Typescript.
+This project contains general helper / formatting functions written in Typescript.
 
 ## Local Development
 
