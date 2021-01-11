@@ -11,10 +11,21 @@ export function formatCurrency(
 ): string {
   const currencies = getCurrencies();
 
-  const currencyObject = currencies.find(x => x.id === currency);
-  if (!currencyObject) {
-    throw new Error('Currency not found');
-  }
+  const currencyObject = currencies.find(x => x.id === currency) || {
+    id: 'EUR',
+    name: 'Euro',
+    fractionSize: 2,
+    symbol: {
+      grapheme: '€',
+      template: '$1',
+      rtl: false,
+    },
+    uniqSymbol: {
+      grapheme: '€',
+      template: '$1',
+      rtl: false,
+    },
+  };
   const { symbol, fractionSize }: CurrencyObject = currencyObject;
 
   let result;

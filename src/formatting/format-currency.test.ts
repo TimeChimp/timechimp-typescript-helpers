@@ -9,8 +9,8 @@ describe('Format currency', () => {
     expect(result).toEqual('$100.00');
   });
 
-  it('Renders the eur format if incorrect currency object', () => {
-    const currency = 'USD';
+  it('Renders the eur format if incorrect currency', () => {
+    const currency = 'Baltus';
     const amount = 100;
 
     const result = formatCurrency(amount, currency, 'comma');
