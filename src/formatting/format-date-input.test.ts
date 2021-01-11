@@ -1,16 +1,14 @@
 import { formatDateInput } from './format-date-input';
 import { DateObject } from '../common/models/interfaces/date-object';
 
-
 describe('InputTimeDate', () => {
   it('Renders the correct time from number', () => {
-
     const dateObject: DateObject = {
       language: 'nl',
       timezone: 'Europe/Amsterdam',
       startOfWeek: 1,
-      dateFormat: 'yyyy-MM-dd HH:mm:ss zzz'
-    }
+      dateFormat: 'yyyy-MM-dd HH:mm:ss zzz',
+    };
 
     // const date = new Date();
     const result = formatDateInput('9:30', dateObject);

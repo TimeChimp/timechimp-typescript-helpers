@@ -1,3 +1,3 @@
 export enum InvoiceMethod {
-   ActivityRate = 1,
+  ActivityRate = 1,
 }

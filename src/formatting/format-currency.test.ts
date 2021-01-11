@@ -8,16 +8,16 @@ describe('Format currency', () => {
       name: 'US Dollar',
       fractionSize: 2,
       symbol: {
-          grapheme: '$',
-          template: '$1',
-          rtl: false,
+        grapheme: '$',
+        template: '$1',
+        rtl: false,
       },
       uniqSymbol: {
-          grapheme: '$',
-          template: '$1',
-          rtl: false,
+        grapheme: '$',
+        template: '$1',
+        rtl: false,
       },
-  }
+    };
 
     const result = formatCurrency(amount, usd, 'dot');
     expect(result).toEqual('$100.00');
@@ -30,16 +30,16 @@ describe('Format currency', () => {
       name: 'US Dollar',
       fractionSize: 2,
       symbol: {
-          grapheme: '$',
-          template: '$1',
-          rtl: false,
+        grapheme: '$',
+        template: '$1',
+        rtl: false,
       },
       uniqSymbol: {
-          grapheme: '$',
-          template: '$1',
-          rtl: false,
+        grapheme: '$',
+        template: '$1',
+        rtl: false,
       },
-  }
+    };
 
     const result = formatCurrency(amount, usd, 'comma');
     expect(result).toEqual('€100,00');

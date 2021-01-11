@@ -8,11 +8,11 @@ describe('Format date', () => {
       language: 'nl',
       timezone: 'Europe/Amsterdam',
       startOfWeek: 1,
-      dateFormat: 'dd-MM-yyyy'
-    }
+      dateFormat: 'dd-MM-yyyy',
+    };
 
     const result = formatDate(amount, dateObject);
 
-    expect(result).toEqual("01-09-2001");
+    expect(result).toEqual('01-09-2001');
   });
 });

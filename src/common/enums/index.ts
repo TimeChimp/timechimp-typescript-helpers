@@ -8,4 +8,3 @@ export { RegistrationView } from './RegistrationView';
 export { RegistrationRow } from './RegistrationRow';
 export { RegistrationSorting } from './RegistrationSorting';
 export { RegistrationCopyType } from './RegistrationCopyType';
-
