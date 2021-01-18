@@ -154,7 +154,7 @@ describe('Day entry formatting', () => {
       },
     ];
 
-    testConditions.forEach(({ input, expected }, index) => {
+    testConditions.forEach(({ input, expected }) => {
       const actual = calculateTime(
         getCurrentDate().toDate(),
         input.start,
