@@ -1,4 +1,4 @@
-import { unformatCurrency } from './unformat-currency';
+import { unformatCurrency } from '../unformat-currency';
 
 describe('Unformat currency', () => {
   it('Renders the unformated number version of the input currency string', () => {

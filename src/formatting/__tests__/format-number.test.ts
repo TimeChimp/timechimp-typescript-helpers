@@ -1,4 +1,4 @@
-import { formatNumber } from './format-number';
+import { formatNumber } from '../format-number';
 
 describe('Format number', () => {
   it('Renders the comma seperated number version of the input string', () => {

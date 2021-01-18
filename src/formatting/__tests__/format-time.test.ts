@@ -1,4 +1,4 @@
-import { formatTime } from './format-time';
+import { formatTime } from '../format-time';
 
 describe('Time', () => {
   it('Renders the formatted version of the input seconds', () => {

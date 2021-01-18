@@ -1,5 +1,5 @@
-import { formatDateInput } from './format-date-input';
-import { DateObject } from '../common/models/interfaces/date-object';
+import { formatDateInput } from '../format-date-input';
+import { DateObject } from '../../common/models/interfaces/date-object';
 
 describe('InputTimeDate', () => {
   it('Renders the correct time from number', () => {

@@ -1,4 +1,4 @@
-import { formatCurrency } from './format-currency';
+import { formatCurrency } from '../format-currency';
 
 describe('Format currency', () => {
   it('Renders the formated string version of the input currency amount', () => {

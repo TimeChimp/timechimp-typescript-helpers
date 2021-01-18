@@ -1,4 +1,4 @@
-import { formatDistance } from './format-distance';
+import { formatDistance } from '../format-distance';
 
 describe('Distance', () => {
   it('Converts meters to miles', () => {

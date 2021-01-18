@@ -1,5 +1,5 @@
-import { formatDate } from './format-date';
-import { DateObject } from '../common/models/interfaces/date-object';
+import { formatDate } from '../format-date';
+import { DateObject } from '../../common/models/interfaces/date-object';
 
 describe('Format date', () => {
   it('Renders the formatted date version of the input string', () => {
