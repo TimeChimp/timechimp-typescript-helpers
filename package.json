@@ -46,6 +46,7 @@
   "dependencies": {
     "accounting": "^0.4.1",
     "date-fns": "^2.16.1",
-    "date-fns-tz": "^1.0.10"
+    "date-fns-tz": "^1.0.10",
+    "dayjs": "^1.10.3"
   }
 }
