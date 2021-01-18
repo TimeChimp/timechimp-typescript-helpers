@@ -39,9 +39,9 @@ export class TcDate {
   getWeekDates = () => {
     const startOfWeek = dayjs(this.internalDate).startOf('w');
     const weekDates: Date[] = [];
-    [...Array(7)].forEach((_, i) => {
+    for (let i = 0; i < 7; i++) {
       weekDates.push(startOfWeek.add(i, 'd').toDate());
-    });
+    }
     return weekDates;
   };
 
