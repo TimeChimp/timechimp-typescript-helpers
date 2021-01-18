@@ -14,9 +14,9 @@ dayjs.extend(updateLocale);
 dayjs.extend(isoWeeksInYear);
 
 export class TcDate {
-  private internalDate?: Date;
+  private internalDate?: ConfigType;
 
-  constructor(date?: Date) {
+  constructor(date?: ConfigType) {
     this.internalDate = date;
   }
 
@@ -105,11 +105,12 @@ export class TcDate {
     if (!this.internalDate) {
       throw new Error('Date is null');
     }
+
     return new Date(
       Date.UTC(
-        this.internalDate.getFullYear(),
-        this.internalDate.getMonth(),
-        this.internalDate.getDate(),
+        (this.internalDate as Date).getFullYear(),
+        (this.internalDate as Date).getMonth(),
+        (this.internalDate as Date).getDate(),
         0,
         0,
         0,
