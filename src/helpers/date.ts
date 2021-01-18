@@ -86,6 +86,10 @@ export const getIsoWeekAndYear = (date: Date) => {
   };
 };
 
+export const getIsoWeek = (date: Date) => {
+  return dayjs(date).isoWeek();
+};
+
 export const minimumDelay = (
   func: () => void,
   startTime: Date,
