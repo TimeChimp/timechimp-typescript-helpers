@@ -2,7 +2,9 @@ export class LocalStorageService {
   localStorageSupported: boolean;
 
   constructor() {
-    this.localStorageSupported = typeof window['localStorage'] != 'undefined' && window['localStorage'] != null;
+    this.localStorageSupported =
+      typeof window['localStorage'] != 'undefined' &&
+      window['localStorage'] != null;
   }
 
   add(key: string, item: string) {

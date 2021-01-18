@@ -1,6 +1,6 @@
 import { filterBy } from '../filter-by';
 
-const array:any = [
+const array: any = [
   {
     client: 'Sony',
     task: 'Design',
