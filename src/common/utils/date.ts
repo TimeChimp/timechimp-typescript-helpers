@@ -38,7 +38,17 @@ export class TcDate {
 
   getWeekDates = () => {
     const startOfWeek = dayjs(this.internalDate).startOf('w');
-    return [...Array(7)].map((_, i) => startOfWeek.add(i, 'd').toDate());
+    console.log('startOfWeek', startOfWeek);
+    console.log('Array', [...Array(7)]);
+    console.log(
+      'test',
+      [...Array(7)].map((_, i) => i)
+    );
+    return [...Array(7)].map((_, i) => {
+      console.log('add1', startOfWeek.add(i, 'd'));
+      console.log('add2', startOfWeek.add(i, 'd').toDate());
+      return startOfWeek.add(i, 'd').toDate();
+    });
   };
 
   formatDateTime = (template: string, language: string = 'en'): string => {
