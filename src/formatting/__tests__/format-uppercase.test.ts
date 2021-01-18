@@ -1,4 +1,4 @@
-import { formatUppercase } from './format-uppercase';
+import { formatUppercase } from '../format-uppercase';
 
 describe('Uppercase', () => {
   it('Renders the uppercase version of the input string', () => {

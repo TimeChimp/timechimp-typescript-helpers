@@ -1,4 +1,4 @@
-import { formatFloat } from './format-float';
+import { formatFloat } from '../format-float';
 
 describe('Format float', () => {
   it('Renders the formatted float version of the input string', () => {

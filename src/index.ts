@@ -16,6 +16,7 @@ export { globalVarExists } from './helpers/global-exists';
 export { dynamicSortMultiple } from './helpers/dynamic-sort-multiple';
 export { guid } from './helpers/guid';
 export { sortBy } from './helpers/sort-by';
+export { filterBy } from './helpers/filter-by';
 export { toggleArray } from './helpers/toggle-array';
 export { tryParseInt } from './helpers/try-parse-int';
 export { tryParseFloat } from './helpers/try-parse-float';
@@ -27,6 +28,12 @@ export { roundNumber } from './helpers/round-number';
 export { enumToSelectList } from './helpers/enum-to-select-list';
 export { isMobile } from './helpers/is-mobile';
 export { sortCaseInsensitive } from './helpers/sort-case-insensitive';
+export { delay } from './helpers/delay';
+export { getNumeric } from './helpers/get-numeric';
+export { imageFileToBase64 } from './helpers/image-file-to-base64';
+export { mod } from './helpers/mod';
+export { getShortLocaleCode } from './helpers/get-short-locale-code';
+export { nameOf } from './helpers/name-of';
 
 // date
 export { TcDate } from './common/utils/date';
@@ -34,6 +41,9 @@ export { LocaleDate } from './common/utils/locale-date';
 export { getDateRanges } from './helpers/get-date-ranges';
 export { getMonthDays } from './helpers/get-month-days';
 export { getWeekDays } from './helpers/get-week-days';
+
+// services
+export { LocalStorageService } from './services/local-storage-service';
 
 // html
 export {
