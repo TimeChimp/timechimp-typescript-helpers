@@ -35,6 +35,9 @@ export { mod } from './helpers/mod';
 export { getShortLocaleCode } from './helpers/get-short-locale-code';
 export { nameOf } from './helpers/name-of';
 
+export * from './helpers/time';
+export * from './helpers/date';
+
 // date
 export { TcDate } from './common/utils/date';
 export { LocaleDate } from './common/utils/locale-date';
