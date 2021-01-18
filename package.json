@@ -24,8 +24,7 @@
   "peerDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint src",
-      "pre-push": "npm version patch"
+      "pre-commit": "tsdx lint src"
     }
   },
   "prettier": {
