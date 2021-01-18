@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/timechimp/timechimp-typescript-helpers.git"
   },
-  "version": "0.1.18",
+  "version": "0.1.19",
   "license": "MIT",
   "author": "TimeChimp",
   "main": "dist/index.js",
