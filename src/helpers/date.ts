@@ -1,10 +1,5 @@
 import dayjs from 'dayjs';
-import 'dayjs/locale/nl';
 import { getShortLocaleCode } from './get-short-locale-code';
-import isoWeek from 'dayjs/plugin/isoWeek';
-import isLeapYear from 'dayjs/plugin/isLeapYear';
-dayjs.extend(isoWeek);
-dayjs.extend(isLeapYear);
 
 export const getWeekDates = (date: Date) => {
   const startOfWeek = dayjs(date).startOf('w');

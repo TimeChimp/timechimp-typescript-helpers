@@ -39,6 +39,7 @@ export * from './helpers/time';
 export * from './helpers/date';
 
 // date
+export * from './common/utils/tc-date';
 export { TcDate } from './common/utils/date';
 export { LocaleDate } from './common/utils/locale-date';
 export { getDateRanges } from './helpers/get-date-ranges';
