@@ -117,15 +117,4 @@ export class TcDate {
       )
     );
   };
-
-  minimumDelay = (
-    func: () => void,
-    startTime: Date,
-    mininumMs: number
-  ): void => {
-    const diff = dayjs(this.internalDate).diff(startTime, 'millisecond');
-    const ms = diff < mininumMs ? mininumMs - diff : 0;
-
-    setTimeout(func, ms);
-  };
 }

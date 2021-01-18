@@ -32,6 +32,7 @@ export { imageFileToBase64 } from './helpers/image-file-to-base64';
 export { mod } from './helpers/mod';
 export { getShortLocaleCode } from './helpers/get-short-locale-code';
 export { nameOf } from './helpers/name-of';
+export { minimumDelay } from './helpers/minimum-delay';
 export * from './helpers/time';
 
 // date
