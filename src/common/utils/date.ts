@@ -13,7 +13,7 @@ dayjs.extend(weekOfYear);
 dayjs.extend(updateLocale);
 dayjs.extend(isoWeeksInYear);
 
-export const changeTcDateLocale = (
+export const setTcDateLocale = (
   preset: string | ILocale,
   object?: Partial<ILocale>
 ) => dayjs.locale(preset, object);
