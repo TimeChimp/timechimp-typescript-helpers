@@ -36,7 +36,11 @@ export { minimumDelay } from './helpers/minimum-delay';
 export * from './helpers/time';
 
 // date
-export { TcDate } from './common/utils/date';
+export {
+  TcDate,
+  setTcDateLocale,
+  updateTcDateLocale,
+} from './common/utils/date';
 
 // services
 export { LocalStorageService } from './services/local-storage-service';
