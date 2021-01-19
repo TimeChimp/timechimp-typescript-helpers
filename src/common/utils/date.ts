@@ -35,6 +35,8 @@ export class TcDate {
   endOf = (unit: OpUnitType) => dayjs(this.internalDate).endOf(unit);
   year = () => dayjs().year();
   week = () => dayjs().week();
+  updateLocale = (localeName: String, customConfig: Object) =>
+    dayjs.updateLocale(localeName, customConfig);
 
   getWeekDates = () => {
     const startOfWeek = dayjs(this.internalDate).startOf('w');
