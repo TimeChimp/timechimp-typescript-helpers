@@ -14,9 +14,10 @@ dayjs.extend(updateLocale);
 dayjs.extend(isoWeeksInYear);
 
 export const setTcDateLocale = (
-  preset: string | ILocale,
-  object?: Partial<ILocale>
-) => dayjs.locale(preset, object);
+  preset?: string | ILocale,
+  object?: Partial<ILocale>,
+  isLocal?: boolean
+) => dayjs.locale(preset, object, isLocal);
 
 export const updateTcDateLocale = (localeName: String, customConfig: Object) =>
   dayjs.updateLocale(localeName, customConfig);
@@ -41,6 +42,8 @@ export class TcDate {
   endOf = (unit: OpUnitType) => dayjs(this.internalDate).endOf(unit);
   year = () => dayjs(this.internalDate).year();
   week = () => dayjs(this.internalDate).week();
+  locale = (preset: string | ILocale, object?: Partial<ILocale>) =>
+    dayjs(this.internalDate).locale(preset, object);
 
   getWeekDates = () => {
     const startOfWeek = dayjs(this.internalDate).startOf('w');
