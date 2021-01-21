@@ -68,11 +68,8 @@ export class TcDate {
     return dayShortName.charAt(0).toUpperCase() + dayShortName.slice(1);
   };
 
-  toDateString = (
-    date?: Date,
-    format: string = 'YYYY-MM-DD'
-  ): string | undefined => {
-    if (!date) {
+  toDateString = (format: string = 'YYYY-MM-DD'): string | undefined => {
+    if (!this.internalDate) {
       return undefined;
     }
 
