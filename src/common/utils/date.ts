@@ -69,10 +69,9 @@ export class TcDate {
   };
 
   toDateString = (
-    date?: Date,
     format: string = 'YYYY-MM-DD'
   ): string | undefined => {
-    if (!date) {
+    if (!this.internalDate) {
       return undefined;
     }
 
