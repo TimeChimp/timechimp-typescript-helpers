@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/timechimp/timechimp-typescript-helpers.git"
   },
-  "version": "0.1.36",
+  "version": "0.1.37",
   "license": "MIT",
   "author": "TimeChimp",
   "main": "dist/index.js",
@@ -36,7 +36,7 @@
   "devDependencies": {
     "@types/accounting": "^0.4.1",
     "@types/jest": "^26.0.20",
-    "husky": "^4.3.7",
+    "husky": "^4.3.8",
     "np": "^7.2.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
