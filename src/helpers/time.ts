@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
 import { TimeFormat } from '../common/models/types/time-format';
+import { TcDate } from '../common/utils/date';
 
 export const secondsToHours = (seconds: number = 0) => seconds / 3600;
 
@@ -168,13 +168,13 @@ export const calculateTime = (
   let startTime;
   let endTime;
   if (startInput) {
-    startTime = dayjs(date)
+    startTime = new TcDate(date)
       .startOf('day')
       .add(formatToSeconds(startInput).seconds!, 'second');
   }
 
   if (endInput) {
-    endTime = dayjs(date)
+    endTime = new TcDate(date)
       .startOf('day')
       .add(formatToSeconds(endInput).seconds!, 'second');
   }
@@ -182,7 +182,7 @@ export const calculateTime = (
   let duration = formatToSeconds(durationInput).seconds;
 
   if (startTime && endTime) {
-    let differenceInMinutes = endTime.diff(startTime, 'minute');
+    let differenceInMinutes = endTime.diff(startTime.toDate(), 'minute');
 
     if (differenceInMinutes < 0) {
       differenceInMinutes = 24 * 60 + differenceInMinutes;

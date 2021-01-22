@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
 import { formatToSeconds, calculateTime } from '../time';
+import { TcDate } from '../../common/utils/date';
 
 const SECONDS_IN_MINUTE = 60;
 const MINUTES_IN_HOUR = 60;
@@ -84,9 +84,8 @@ describe('Time duration formatting', () => {
 
 describe('Day entry formatting', () => {
   it('should calculate start/end/duration combination correctly', () => {
-    const getCurrentDate = () => dayjs(new Date());
     const getDateFrom00 = (hours = 0, minutes = 0) =>
-      getCurrentDate()
+      new TcDate()
         .startOf('day')
         .add(hours, 'hour')
         .add(minutes, 'minute');
@@ -156,7 +155,7 @@ describe('Day entry formatting', () => {
 
     testConditions.forEach(({ input, expected }) => {
       const actual = calculateTime(
-        getCurrentDate().toDate(),
+        new Date(),
         input.start,
         input.end,
         input.duration
