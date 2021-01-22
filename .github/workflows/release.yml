@@ -1,6 +1,10 @@
-name: Node CI
+name: NPM publish
 
-on: push
+on:
+  push:
+    branches:    
+      # Push events on main branch
+      - master
 
 jobs:
   build:
@@ -23,5 +27,8 @@ jobs:
       run: npm test
     - name: Build
       run: npm run build
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
       env:
         CI: true
