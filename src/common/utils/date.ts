@@ -451,12 +451,10 @@ export class TcDate {
   };
 
   private getLocaleObject = (locale: TcDateLocale) => {
-    switch (locale) {
-      case 'nl':
-        return nl;
-      case 'en':
-      default:
-        return en;
-    }
+    const locales = {
+      en,
+      nl,
+    };
+    return locales[locale];
   };
 }
