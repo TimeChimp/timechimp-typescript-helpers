@@ -112,25 +112,25 @@ describe('utils/date', () => {
     });
 
     it('should properly translate weekdays in Dutch', () => {
-      expect(new TcDate(new Date(2020, 11, 7)).getDayShortName('nl')).toBe(
+      expect(new TcDate(new Date(2020, 11, 7)).getDayShortName('nl-NL')).toBe(
         'Maa 7'
       );
-      expect(new TcDate(new Date(2020, 11, 8)).getDayShortName('nl')).toBe(
+      expect(new TcDate(new Date(2020, 11, 8)).getDayShortName('nl-NL')).toBe(
         'Din 8'
       );
-      expect(new TcDate(new Date(2020, 11, 9)).getDayShortName('nl')).toBe(
+      expect(new TcDate(new Date(2020, 11, 9)).getDayShortName('nl-NL')).toBe(
         'Woe 9'
       );
-      expect(new TcDate(new Date(2020, 11, 10)).getDayShortName('nl')).toBe(
+      expect(new TcDate(new Date(2020, 11, 10)).getDayShortName('nl-NL')).toBe(
         'Don 10'
       );
-      expect(new TcDate(new Date(2020, 11, 11)).getDayShortName('nl')).toBe(
+      expect(new TcDate(new Date(2020, 11, 11)).getDayShortName('nl-NL')).toBe(
         'Vri 11'
       );
-      expect(new TcDate(new Date(2020, 11, 12)).getDayShortName('nl')).toBe(
+      expect(new TcDate(new Date(2020, 11, 12)).getDayShortName('nl-NL')).toBe(
         'Zat 12'
       );
-      expect(new TcDate(new Date(2020, 11, 13)).getDayShortName('nl')).toBe(
+      expect(new TcDate(new Date(2020, 11, 13)).getDayShortName('nl-NL')).toBe(
         'Zon 13'
       );
     });

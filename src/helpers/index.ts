@@ -23,6 +23,7 @@ export { mod } from './mod';
 export { getShortLocaleCode } from './get-short-locale-code';
 export { nameOf } from './name-of';
 export { minimumDelay } from './minimum-delay';
+export { getDateLocale } from './get-date-locale';
 export {
   getInputValueByName,
   setInputValueByName,

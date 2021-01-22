@@ -1,6 +1,8 @@
 import { Time } from '../models/types/time';
 import { BetweenDate } from '../models/types/between-date';
 import { WeekStartDay } from '../models/types/week-start-day';
+import { getDateLocale } from '../../helpers/get-date-locale';
+import { SupportedLocale } from '../models/types/supported-locales';
 import {
   addMonths,
   addWeeks,
@@ -66,10 +68,7 @@ import {
 import getISOWeekYear from 'date-fns/getISOWeekYear';
 import getISOWeek from 'date-fns/getISOWeek';
 import getISODay from 'date-fns/getISODay';
-import en from 'date-fns/locale/en-US';
-import nl from 'date-fns/locale/nl';
 
-type TcDateLocale = 'nl' | 'en';
 export class TcDate {
   private date: Date;
 
@@ -84,9 +83,9 @@ export class TcDate {
     return this.date;
   }
 
-  public format(template: string, locale?: TcDateLocale) {
+  public format(template: string, locale?: SupportedLocale) {
     if (locale) {
-      const localeObject = this.getLocaleObject(locale);
+      const localeObject = getDateLocale(locale);
       return format(this.date, template, { locale: localeObject });
     }
     return format(this.date, template);
@@ -396,7 +395,7 @@ export class TcDate {
     return weekDates;
   };
 
-  public getDayShortName = (locale?: TcDateLocale): string => {
+  public getDayShortName = (locale?: SupportedLocale): string => {
     const dayShortName = this.format('EEE d', locale);
     return dayShortName.charAt(0).toUpperCase() + dayShortName.slice(1);
   };
@@ -450,13 +449,5 @@ export class TcDate {
         0
       )
     );
-  };
-
-  private getLocaleObject = (locale: TcDateLocale) => {
-    const locales = {
-      en,
-      nl,
-    };
-    return locales[locale];
   };
 }
