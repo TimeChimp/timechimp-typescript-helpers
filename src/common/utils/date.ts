@@ -73,7 +73,10 @@ type TcDateLocale = 'nl' | 'en';
 export class TcDate {
   private date: Date;
 
-  public constructor(date: Date) {
+  public constructor(date?: Date) {
+    if (!date) {
+      date = new Date();
+    }
     this.date = date;
   }
 
@@ -90,107 +93,107 @@ export class TcDate {
   }
 
   public add(amount: number, type: Time): TcDate {
+    let date;
     switch (type) {
       case 'milliseconds':
       case 'millisecond':
       case 'ms':
-        this.date = addMilliseconds(this.date, amount);
+        date = addMilliseconds(this.date, amount);
         break;
       case 'seconds':
       case 'second':
       case 's':
-        this.date = addSeconds(this.date, amount);
+        date = addSeconds(this.date, amount);
         break;
       case 'minutes':
       case 'minute':
       case 'm':
-        this.date = addMinutes(this.date, amount);
+        date = addMinutes(this.date, amount);
         break;
       case 'hours':
       case 'hour':
       case 'h':
-        this.date = addHours(this.date, amount);
+        date = addHours(this.date, amount);
         break;
       case 'days':
       case 'day':
       case 'd':
-        this.date = addDays(this.date, amount);
+        date = addDays(this.date, amount);
         break;
       case 'weeks':
       case 'week':
       case 'w':
-        this.date = addWeeks(this.date, amount);
+        date = addWeeks(this.date, amount);
         break;
       case 'months':
       case 'month':
       case 'M':
-        this.date = addMonths(this.date, amount);
+        date = addMonths(this.date, amount);
         break;
       case 'quarters':
       case 'quarter':
       case 'q':
-        this.date = addQuarters(this.date, amount);
+        date = addQuarters(this.date, amount);
         break;
       case 'years':
       case 'year':
       case 'y':
-        this.date = addYears(this.date, amount);
+        date = addYears(this.date, amount);
         break;
     }
-
-    return this;
+    return new TcDate(date);
   }
 
   public subtract(amount: number, type: Time): TcDate {
+    let date;
     switch (type) {
       case 'milliseconds':
       case 'millisecond':
       case 'ms':
-        this.date = subMilliseconds(this.date, amount);
+        date = subMilliseconds(this.date, amount);
         break;
       case 'seconds':
       case 'second':
       case 's':
-        this.date = subSeconds(this.date, amount);
+        date = subSeconds(this.date, amount);
         break;
       case 'minutes':
       case 'minute':
       case 'm':
-        this.date = subMinutes(this.date, amount);
+        date = subMinutes(this.date, amount);
         break;
       case 'hours':
       case 'hour':
       case 'h':
-        this.date = subHours(this.date, amount);
+        date = subHours(this.date, amount);
         break;
       case 'days':
       case 'day':
       case 'd':
-        this.date = subDays(this.date, amount);
+        date = subDays(this.date, amount);
         break;
       case 'weeks':
       case 'week':
       case 'w':
-        this.date = subWeeks(this.date, amount);
+        date = subWeeks(this.date, amount);
         break;
       case 'months':
       case 'month':
       case 'M':
-        this.date = subMonths(this.date, amount);
+        date = subMonths(this.date, amount);
         break;
       case 'quarters':
       case 'quarter':
       case 'q':
-        this.date = subQuarters(this.date, amount);
+        date = subQuarters(this.date, amount);
         break;
       case 'years':
       case 'year':
       case 'y':
-        this.date = subYears(this.date, amount);
+        date = subYears(this.date, amount);
         break;
     }
-
-    return this;
+    return new TcDate(date);
   }
 
   public diff(start: Date, type: Time): number {
@@ -230,70 +233,69 @@ export class TcDate {
         difference = differenceInYears(this.date, start);
         break;
     }
-
     return difference;
   }
 
   public startOf(type: Time, weekStartDay?: WeekStartDay): TcDate {
+    let date;
     switch (type) {
       case 'seconds':
-        this.date = startOfSecond(this.date);
+        date = startOfSecond(this.date);
         break;
       case 'minutes':
-        this.date = startOfMinute(this.date);
+        date = startOfMinute(this.date);
         break;
       case 'hours':
-        this.date = startOfHour(this.date);
+        date = startOfHour(this.date);
         break;
       case 'day':
-        this.date = startOfDay(this.date);
+        date = startOfDay(this.date);
         break;
       case 'week':
-        this.date = startOfWeek(this.date, { weekStartsOn: weekStartDay });
+        date = startOfWeek(this.date, { weekStartsOn: weekStartDay });
         break;
       case 'month':
-        this.date = startOfMonth(this.date);
+        date = startOfMonth(this.date);
         break;
       case 'quarter':
-        this.date = startOfQuarter(this.date);
+        date = startOfQuarter(this.date);
         break;
       case 'year':
-        this.date = startOfYear(this.date);
+        date = startOfYear(this.date);
         break;
     }
-
-    return this;
+    return new TcDate(date);
   }
 
   public endOf(type: Time, weekStartDay?: WeekStartDay): TcDate {
+    let date;
     switch (type) {
       case 'seconds':
-        this.date = endOfSecond(this.date);
+        date = endOfSecond(this.date);
         break;
       case 'minutes':
-        this.date = endOfMinute(this.date);
+        date = endOfMinute(this.date);
         break;
       case 'hours':
-        this.date = endOfHour(this.date);
+        date = endOfHour(this.date);
         break;
       case 'day':
-        this.date = endOfDay(this.date);
+        date = endOfDay(this.date);
         break;
       case 'week':
-        this.date = endOfWeek(this.date, { weekStartsOn: weekStartDay });
+        date = endOfWeek(this.date, { weekStartsOn: weekStartDay });
         break;
       case 'month':
-        this.date = endOfMonth(this.date);
+        date = endOfMonth(this.date);
         break;
       case 'quarter':
-        this.date = endOfQuarter(this.date);
+        date = endOfQuarter(this.date);
         break;
       case 'year':
-        this.date = endOfYear(this.date);
+        date = endOfYear(this.date);
         break;
     }
-
-    return this;
+    return new TcDate(date);
   }
 
   public weekday(): number {
@@ -351,21 +353,21 @@ export class TcDate {
   }
 
   public set(amount: number, type: Time): TcDate {
+    let date;
     switch (type) {
       case 'second':
       case 'seconds':
-        this.date = setSeconds(this.date, amount);
+        date = setSeconds(this.date, amount);
         break;
       case 'minute':
       case 'minutes':
-        this.date = setMinutes(this.date, amount);
+        date = setMinutes(this.date, amount);
         break;
       case 'hour':
       case 'hours':
-        this.date = setHours(this.date, amount);
+        date = setHours(this.date, amount);
     }
-
-    return this;
+    return new TcDate(date);
   }
 
   public daysInMonth(): number {
@@ -395,12 +397,12 @@ export class TcDate {
   };
 
   public getDayShortName = (locale?: TcDateLocale): string => {
-    const dayShortName = this.format('ddd D', locale);
+    const dayShortName = this.format('EEE d', locale);
     return dayShortName.charAt(0).toUpperCase() + dayShortName.slice(1);
   };
 
   public getYearMonthDayKey = () => {
-    return this.format('YYYY-MM-DD');
+    return this.format('yyyy-MM-dd');
   };
 
   public getDateOfWeek = (week: number, year: number) => {
