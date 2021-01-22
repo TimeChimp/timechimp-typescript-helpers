@@ -1,10 +1,11 @@
 import dayjs from 'dayjs';
+import { TimeFormat } from '../common/models/types/time-format';
 
 export const secondsToHours = (seconds: number = 0) => seconds / 3600;
 
 export const hoursToSeconds = (hours: number = 0) => hours * 3600;
 
-export interface FormatToSecondsResult {
+interface FormatToSecondsResult {
   isValid: boolean;
   seconds: number | null;
 }
@@ -111,8 +112,6 @@ export const formatToSeconds = (
 
   return result;
 };
-
-export type TimeFormat = 'HH:mm' | 'HH:mm:ss';
 
 export const formatToTime = (seconds: number, format: TimeFormat = 'HH:mm') => {
   if (isNaN(seconds)) {
