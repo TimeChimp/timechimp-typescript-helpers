@@ -25,3 +25,7 @@ The package is optimized and bundled with Rollup into multiple formats (CommonJS
 
 Runs the test watcher (Jest) in an interactive mode.
 By default, runs tests related to files changed since the last commit.
+
+## Releasing
+
+Releases are handled by the CI/CD pipeline. All you need to do is bump the version number in `package.json` and the pipeline will take care of releasing it to the NPM registry.
