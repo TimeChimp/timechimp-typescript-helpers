@@ -35,7 +35,6 @@ export class TcDate {
     dayjs(this.internalDate).subtract(value, unit);
   toDate = () => dayjs(this.internalDate).toDate();
   toISOString = () => dayjs(this.internalDate).toISOString();
-  format = (template?: string) => dayjs(this.internalDate).format(template);
   isSame = (date: ConfigType, unit?: OpUnitType) =>
     dayjs(this.internalDate).isSame(date, unit);
   startOf = (unit: OpUnitType) => dayjs(this.internalDate).startOf(unit);
@@ -44,6 +43,12 @@ export class TcDate {
   week = () => dayjs(this.internalDate).week();
   locale = (preset: string | ILocale, object?: Partial<ILocale>) =>
     dayjs(this.internalDate).locale(preset, object);
+
+  format = (template: string, language: string = 'en'): string => {
+    return dayjs(this.internalDate)
+      .locale(getShortLocaleCode(language))
+      .format(template);
+  };
 
   getWeekDates = () => {
     const startOfWeek = dayjs(this.internalDate).startOf('w');
@@ -54,26 +59,9 @@ export class TcDate {
     return weekDates;
   };
 
-  formatDateTime = (template: string, language: string = 'en'): string => {
-    if (!this.internalDate) {
-      return '';
-    }
-    return dayjs(this.internalDate)
-      .locale(getShortLocaleCode(language))
-      .format(template);
-  };
-
   getDayShortName = (language: string = 'en'): string => {
-    const dayShortName = this.formatDateTime('ddd D', language);
+    const dayShortName = this.format('ddd D', language);
     return dayShortName.charAt(0).toUpperCase() + dayShortName.slice(1);
-  };
-
-  toDateString = (format: string = 'YYYY-MM-DD'): string | undefined => {
-    if (!this.internalDate) {
-      return undefined;
-    }
-
-    return dayjs(this.internalDate).format(format);
   };
 
   getYearMonthDayKey = () => {
