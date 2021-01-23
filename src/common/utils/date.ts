@@ -189,7 +189,7 @@ export class TcDate {
         break;
       case 'months':
       case 'month':
-      case 'M':
+      case 'm':
         date = subMonths(this.date, amount);
         break;
       case 'quarters':
@@ -212,34 +212,42 @@ export class TcDate {
     switch (type) {
       case 'seconds':
       case 'second':
+      case 's':
         difference = differenceInSeconds(this.date, start);
         break;
       case 'minutes':
       case 'minute':
+      case 'm':
         difference = differenceInMinutes(this.date, start);
         break;
       case 'hours':
       case 'hour':
+      case 'h':
         difference = differenceInHours(this.date, start);
         break;
       case 'days':
       case 'day':
+      case 'd':
         difference = differenceInDays(this.date, start);
         break;
       case 'weeks':
       case 'week':
+      case 'w':
         difference = differenceInWeeks(this.date, start);
         break;
       case 'months':
       case 'month':
+      case 'm':
         difference = differenceInMonths(this.date, start);
         break;
       case 'quarters':
       case 'quarter':
+      case 'q':
         difference = differenceInQuarters(this.date, start);
         break;
       case 'years':
       case 'year':
+      case 'y':
         difference = differenceInYears(this.date, start);
         break;
     }
@@ -250,27 +258,43 @@ export class TcDate {
     let date;
     switch (type) {
       case 'seconds':
+      case 'second':
+      case 's':
         date = startOfSecond(this.date);
         break;
       case 'minutes':
+      case 'minute':
+      case 'm':
         date = startOfMinute(this.date);
         break;
       case 'hours':
+      case 'hour':
+      case 'h':
         date = startOfHour(this.date);
         break;
+      case 'days':
       case 'day':
+      case 'd':
         date = startOfDay(this.date);
         break;
+      case 'weeks':
       case 'week':
+      case 'w':
         date = startOfWeek(this.date, { weekStartsOn: weekStartDay });
         break;
+      case 'months':
       case 'month':
+      case 'm':
         date = startOfMonth(this.date);
         break;
+      case 'quarters':
       case 'quarter':
+      case 'q':
         date = startOfQuarter(this.date);
         break;
+      case 'years':
       case 'year':
+      case 'y':
         date = startOfYear(this.date);
         break;
     }
@@ -281,27 +305,43 @@ export class TcDate {
     let date;
     switch (type) {
       case 'seconds':
+      case 'second':
+      case 's':
         date = endOfSecond(this.date);
         break;
       case 'minutes':
+      case 'minute':
+      case 'm':
         date = endOfMinute(this.date);
         break;
       case 'hours':
+      case 'hour':
+      case 'h':
         date = endOfHour(this.date);
         break;
+      case 'days':
       case 'day':
+      case 'd':
         date = endOfDay(this.date);
         break;
+      case 'weeks':
       case 'week':
+      case 'w':
         date = endOfWeek(this.date, { weekStartsOn: weekStartDay });
         break;
+      case 'months':
       case 'month':
+      case 'm':
         date = endOfMonth(this.date);
         break;
+      case 'quarters':
       case 'quarter':
+      case 'q':
         date = endOfQuarter(this.date);
         break;
+      case 'years':
       case 'year':
+      case 'y':
         date = endOfYear(this.date);
         break;
     }
@@ -438,6 +478,14 @@ export class TcDate {
       week: getISOWeek(this.date),
       day: getISODay(this.date),
     };
+  };
+
+  public getISODay = () => {
+    return getISODay(this.date);
+  };
+
+  public getISOYear = () => {
+    return getISOWeekYear(this.date);
   };
 
   public getIsoWeek = () => {
