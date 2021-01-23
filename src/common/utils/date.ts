@@ -64,6 +64,8 @@ import {
   addMilliseconds,
   getYear,
   format,
+  parse,
+  parseISO,
 } from 'date-fns';
 import getISOWeekYear from 'date-fns/getISOWeekYear';
 import getISOWeek from 'date-fns/getISOWeek';
@@ -72,11 +74,20 @@ import getISODay from 'date-fns/getISODay';
 export class TcDate {
   private date: Date;
 
-  public constructor(date?: Date) {
+  public constructor(date?: Date | string, format?: string) {
     if (!date) {
       date = new Date();
     }
-    this.date = date;
+
+    if (typeof date === 'string') {
+      if (format) {
+        this.date = parse(date, format, new Date());
+      } else {
+        this.date = parseISO(date);
+      }
+    } else {
+      this.date = date;
+    }
   }
 
   public toDate() {
