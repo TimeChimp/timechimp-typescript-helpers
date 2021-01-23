@@ -66,6 +66,7 @@ import {
   format,
   parse,
   parseISO,
+  differenceInMilliseconds,
 } from 'date-fns';
 import getISOWeekYear from 'date-fns/getISOWeekYear';
 import getISOWeek from 'date-fns/getISOWeek';
@@ -214,6 +215,11 @@ export class TcDate {
     let difference: number = differenceInSeconds(this.date, start);
 
     switch (type) {
+      case 'milliseconds':
+      case 'millisecond':
+      case 'ms':
+        difference = differenceInMilliseconds(this.date, start);
+        break;
       case 'seconds':
       case 'second':
       case 's':
