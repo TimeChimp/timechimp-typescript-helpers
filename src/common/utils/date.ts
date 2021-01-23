@@ -440,6 +440,14 @@ export class TcDate {
     };
   };
 
+  public getISODay = () => {
+    return getISODay(this.date);
+  };
+
+  public getISOYear = () => {
+    return getISOWeekYear(this.date);
+  };
+
   public getIsoWeek = () => {
     return getISOWeek(this.date);
   };
