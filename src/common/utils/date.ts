@@ -150,6 +150,8 @@ export class TcDate {
       case 'y':
         date = addYears(this.date, amount);
         break;
+      default:
+        throw new Error(`${type} is not supported`);
     }
     return new TcDate(date);
   }
@@ -189,7 +191,7 @@ export class TcDate {
         break;
       case 'months':
       case 'month':
-      case 'm':
+      case 'M':
         date = subMonths(this.date, amount);
         break;
       case 'quarters':
@@ -202,6 +204,8 @@ export class TcDate {
       case 'y':
         date = subYears(this.date, amount);
         break;
+      default:
+        throw new Error(`${type} is not supported`);
     }
     return new TcDate(date);
   }
@@ -237,7 +241,7 @@ export class TcDate {
         break;
       case 'months':
       case 'month':
-      case 'm':
+      case 'M':
         difference = differenceInMonths(this.date, start);
         break;
       case 'quarters':
@@ -250,6 +254,8 @@ export class TcDate {
       case 'y':
         difference = differenceInYears(this.date, start);
         break;
+      default:
+        throw new Error(`${type} is not supported`);
     }
     return difference;
   }
@@ -284,7 +290,7 @@ export class TcDate {
         break;
       case 'months':
       case 'month':
-      case 'm':
+      case 'M':
         date = startOfMonth(this.date);
         break;
       case 'quarters':
@@ -297,6 +303,8 @@ export class TcDate {
       case 'y':
         date = startOfYear(this.date);
         break;
+      default:
+        throw new Error(`${type} is not supported`);
     }
     return new TcDate(date);
   }
@@ -331,7 +339,7 @@ export class TcDate {
         break;
       case 'months':
       case 'month':
-      case 'm':
+      case 'M':
         date = endOfMonth(this.date);
         break;
       case 'quarters':
@@ -344,6 +352,8 @@ export class TcDate {
       case 'y':
         date = endOfYear(this.date);
         break;
+      default:
+        throw new Error(`${type} is not supported`);
     }
     return new TcDate(date);
   }
@@ -370,20 +380,30 @@ export class TcDate {
     weekStartDay?: WeekStartDay
   ): boolean {
     switch (type) {
+      case 'days':
       case 'day':
+      case 'd':
         return isSameDay(this.date, dateToCheck);
+      case 'weeks':
       case 'week':
+      case 'w':
         return isSameWeek(this.date, dateToCheck, {
           weekStartsOn: weekStartDay,
         });
+      case 'months':
       case 'month':
+      case 'M':
         return isSameMonth(this.date, dateToCheck);
+      case 'quarters':
       case 'quarter':
+      case 'q':
         return isSameQuarter(this.date, dateToCheck);
+      case 'years':
       case 'year':
+      case 'y':
         return isSameYear(this.date, dateToCheck);
       default:
-        return false;
+        throw new Error(`${type} is not supported`);
     }
   }
 
