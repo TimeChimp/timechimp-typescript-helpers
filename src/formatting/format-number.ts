@@ -8,13 +8,13 @@ export function formatNumber(
 ) {
   switch (numberFormat) {
     case 'dot':
-      return accounting.formatNumber(input, precision, ',', '.');
+      return accounting.formatNumber(input, precision, '.', ',');
     case 'space':
-      return accounting.formatNumber(input, precision, ',', ' ');
+      return accounting.formatNumber(input, precision, ' ', ',');
     case 'apostrophe':
-      return accounting.formatNumber(input, precision, '.', "'");
+      return accounting.formatNumber(input, precision, "'", '.');
     case 'comma':
     default:
-      return accounting.formatNumber(input, precision, '.', ',');
+      return accounting.formatNumber(input, precision, ',', '.');
   }
 }
