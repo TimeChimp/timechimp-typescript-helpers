@@ -1,4 +1,4 @@
-import { TimeFormat } from '../common/models/types/time-format';
+import { TimeDisplay } from '../common/models/types/time-display';
 import { TcDate } from '../common/utils/date';
 
 export const secondsToHours = (seconds: number = 0) => seconds / 3600;
@@ -113,7 +113,10 @@ export const formatToSeconds = (
   return result;
 };
 
-export const formatToTime = (seconds: number, format: TimeFormat = 'HH:mm') => {
+export const formatToTime = (
+  seconds: number,
+  format: TimeDisplay = 'HH:mm'
+) => {
   if (isNaN(seconds)) {
     seconds = 0;
   }

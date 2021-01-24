@@ -11,6 +11,8 @@ export function formatNumber(
       return accounting.formatNumber(input, precision, ',', '.');
     case 'space':
       return accounting.formatNumber(input, precision, ',', ' ');
+    case 'apostrophe':
+      return accounting.formatNumber(input, precision, '.', "'");
     case 'comma':
     default:
       return accounting.formatNumber(input, precision, '.', ',');
