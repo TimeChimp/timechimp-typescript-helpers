@@ -1,7 +1,10 @@
 import { formatNumber } from './format-number';
-import { TimeDisplay } from '../common/models/types/time-display';
+import { DurationFormat } from './../common/models/types/duration-format';
 
-export function formatTime(seconds: number, format: TimeDisplay = 'HH:mm:ss') {
+export function formatTime(
+  seconds: number,
+  format: DurationFormat = 'HH:mm:ss'
+) {
   if (isNaN(seconds)) {
     seconds = 0;
   }
