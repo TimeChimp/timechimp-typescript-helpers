@@ -1,14 +1,11 @@
-import { DurationFormat } from '../common/models/types/duration-format';
-import { TcDate } from '../common/utils/date';
-
-export const secondsToHours = (seconds: number = 0) => seconds / 3600;
-
-export const hoursToSeconds = (hours: number = 0) => hours * 3600;
-
 interface FormatToSecondsResult {
   isValid: boolean;
   seconds: number | null;
 }
+
+export const secondsToHours = (seconds: number = 0) => seconds / 3600;
+
+export const hoursToSeconds = (hours: number = 0) => hours * 3600;
 
 export const formatToSeconds = (
   input: string | undefined,
@@ -111,97 +108,4 @@ export const formatToSeconds = (
   }
 
   return result;
-};
-
-export const formatToTime = (
-  seconds: number,
-  format: DurationFormat = 'HH:mm'
-) => {
-  if (isNaN(seconds)) {
-    seconds = 0;
-  }
-
-  let time = '';
-  let isNegative = false;
-
-  if (seconds < 0) {
-    isNegative = true;
-    seconds = Math.abs(seconds);
-  }
-
-  const hour = Math.floor(seconds / 3600);
-  const minute = Math.round((seconds - hour * 3600) / 60);
-
-  const formatedHour = hour < 10 ? `0${hour}` : hour;
-
-  if (minute < 10) {
-    time = `${formatedHour}:0${minute}`;
-  } else {
-    time = `${formatedHour}:${minute}`;
-  }
-
-  if (format === 'HH:mm:ss') {
-    const second = Math.floor(seconds - hour * 3600 - minute * 60);
-    if (second < 10) {
-      time = `${time}:0${second}`;
-    } else {
-      time = `${time}:${second}`;
-    }
-  }
-
-  if (isNegative) {
-    time = `-${time}`;
-  }
-
-  return time;
-};
-
-interface TimeResult {
-  start: Date | null;
-  end: Date | null;
-  duration: number | null;
-}
-
-export const calculateTime = (
-  date: Date,
-  startInput?: string,
-  endInput?: string,
-  durationInput?: string
-): TimeResult => {
-  let startTime;
-  let endTime;
-  if (startInput) {
-    startTime = new TcDate(date)
-      .startOf('day')
-      .add(formatToSeconds(startInput).seconds!, 'second');
-  }
-
-  if (endInput) {
-    endTime = new TcDate(date)
-      .startOf('day')
-      .add(formatToSeconds(endInput).seconds!, 'second');
-  }
-
-  let duration = formatToSeconds(durationInput).seconds;
-
-  if (startTime && endTime) {
-    let differenceInMinutes = endTime.diff(startTime.toDate(), 'minute');
-
-    if (differenceInMinutes < 0) {
-      differenceInMinutes = 24 * 60 + differenceInMinutes;
-      endTime = endTime.add(1, 'day');
-    }
-
-    duration = differenceInMinutes * 60; // convert minutes to seconds
-  } else if (duration !== null && endTime) {
-    startTime = endTime.subtract(duration, 'second');
-  } else if (duration !== null && startTime) {
-    endTime = startTime.add(duration, 'second');
-  }
-
-  return {
-    start: startTime ? startTime.toDate() : null,
-    end: endTime ? endTime.toDate() : null,
-    duration,
-  };
 };

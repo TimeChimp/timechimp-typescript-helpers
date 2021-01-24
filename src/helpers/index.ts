@@ -24,15 +24,9 @@ export { getShortLocaleCode } from './get-short-locale-code';
 export { nameOf } from './name-of';
 export { minimumDelay } from './minimum-delay';
 export { getDateLocale } from './get-date-locale';
+export { calculateTime } from './calculate-time';
 export {
   getInputValueByName,
   setInputValueByName,
   setInputCheckedByName,
 } from './get-input-value-by-name';
-export {
-  secondsToHours,
-  hoursToSeconds,
-  formatToSeconds,
-  formatToTime,
-  calculateTime,
-} from './time';
