@@ -1,9 +1,11 @@
 import { formatNumber } from './format-number';
 import { DurationFormat } from '../common/models/types/duration-format';
+import { NumberFormat } from '../common/models/types/number-format';
 
 export const formatDuration = (
   seconds: number,
-  format: DurationFormat = 'HH:mm'
+  format: DurationFormat = 'HH:mm',
+  decimalFormat: NumberFormat = 'comma'
 ) => {
   if (isNaN(seconds)) {
     seconds = 0;
@@ -38,7 +40,7 @@ export const formatDuration = (
       }
     }
   } else if (format === 'decimal') {
-    time = formatNumber(seconds / 3600);
+    time = formatNumber(seconds / 3600, 2, decimalFormat);
   }
 
   if (isNegative) {
