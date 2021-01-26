@@ -1,10 +1,10 @@
-import { formatToSeconds } from '../formatting/format-to-seconds';
+import { TimeParser } from '../common/utils/time-parser';
 import { TcDate } from './../common/utils/date';
 
 interface TimeResult {
   start: Date | null;
   end: Date | null;
-  duration: number | null;
+  duration: number | null | undefined;
 }
 
 export const calculateTime = (
@@ -18,16 +18,16 @@ export const calculateTime = (
   if (startInput) {
     startTime = new TcDate(date)
       .startOf('day')
-      .add(formatToSeconds(startInput).seconds!, 'second');
+      .add(new TimeParser(startInput).parse().seconds!, 'second');
   }
 
   if (endInput) {
     endTime = new TcDate(date)
       .startOf('day')
-      .add(formatToSeconds(endInput).seconds!, 'second');
+      .add(new TimeParser(endInput).parse().seconds!, 'second');
   }
 
-  let duration = formatToSeconds(durationInput).seconds;
+  let duration = new TimeParser(durationInput).parse().seconds;
 
   if (startTime && endTime) {
     let differenceInMinutes = endTime.diff(startTime.toDate(), 'minute');
@@ -38,15 +38,15 @@ export const calculateTime = (
     }
 
     duration = differenceInMinutes * 60; // convert minutes to seconds
-  } else if (duration !== null && endTime) {
+  } else if (duration && endTime) {
     startTime = endTime.subtract(duration, 'second');
-  } else if (duration !== null && startTime) {
+  } else if (duration && startTime) {
     endTime = startTime.add(duration, 'second');
   }
 
   return {
     start: startTime ? startTime.toDate() : null,
     end: endTime ? endTime.toDate() : null,
-    duration,
+    duration: duration ? duration : null,
   };
 };

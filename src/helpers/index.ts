@@ -25,6 +25,8 @@ export { nameOf } from './name-of';
 export { minimumDelay } from './minimum-delay';
 export { getDateLocale } from './get-date-locale';
 export { calculateTime } from './calculate-time';
+export { timePlaceholder } from './time-placeholder';
+export { durationPlaceholder } from './duration-placeholder';
 export {
   getInputValueByName,
   setInputValueByName,
