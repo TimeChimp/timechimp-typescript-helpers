@@ -95,12 +95,16 @@ export class TcDate {
     return this.date;
   }
 
-  public format(template: string, locale?: SupportedLocale) {
-    if (locale) {
-      const localeObject = getDateLocale(locale);
-      return format(this.date, template, { locale: localeObject });
-    }
-    return format(this.date, template);
+  public format(template: string, locale: SupportedLocale = 'en-US') {
+    const localeObject = {
+      ...getDateLocale(locale),
+      abbreviated: {
+        am: 'am',
+        pm: 'pm',
+      },
+    };
+
+    return format(this.date, template, { locale: localeObject });
   }
 
   public add(amount: number, type: Time): TcDate {
