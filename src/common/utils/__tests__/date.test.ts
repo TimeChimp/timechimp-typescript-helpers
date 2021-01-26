@@ -1,6 +1,14 @@
 import { TcDate } from '../date';
 
 describe('utils/date', () => {
+  describe('formatDate', () => {
+    it('should format a date', () => {
+      const date = new Date(2020, 1, 1, 1, 1, 0, 0);
+
+      expect(new TcDate(date).format('h:mma')).toBe('1:01am');
+    });
+  });
+
   describe('getDateWithoutTimeAsUTC', () => {
     it('should convert a date without time correctly', () => {
       const dateWithoutTime = new Date(2020, 1, 1, 0, 0, 0, 0);
