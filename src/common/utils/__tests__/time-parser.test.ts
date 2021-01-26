@@ -63,6 +63,11 @@ describe('TimeEntryDurationField', () => {
       { input: '-003', expectedResult: '-00:03' },
       { input: '-022', expectedResult: '-00:22' },
       { input: '-2400', expectedResult: '-24:00' },
+
+      { input: '1:00am', expectedResult: '01:00' },
+      { input: '11:00am', expectedResult: '11:00' },
+      { input: '1:00pm', expectedResult: '13:00' },
+      { input: '11:00pm', expectedResult: '23:00' },
     ];
 
     validInputs.forEach(({ input, expectedResult }) => {

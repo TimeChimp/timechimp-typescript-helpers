@@ -36,6 +36,7 @@ const SECONDS_IN_HOUR = 3600;
 const MINUTES_IN_HOUR = 60;
 const SECONDS_IN_MINUTE = 60;
 const HOURS_IN_DAY = 24;
+const HOURS_IN_12_CLOCK = 12;
 const SECONDS_IN_DAY = HOURS_IN_DAY * SECONDS_IN_HOUR;
 
 const SIGN_MINUS = -1;
@@ -48,6 +49,8 @@ const extractHours = (result: RegExpMatchArray) =>
   parseFloat(unifySeparator(result.groups!['hours']));
 const extractMinutes = (result: RegExpMatchArray) =>
   parseInt(result.groups!['minutes'], 10);
+const extractAbbreviation = (result: RegExpMatchArray) =>
+  result.groups!['abbreviation']?.toLowerCase();
 
 // Main strategies
 function fromHoursSigned(result: RegExpMatchArray): number | null {
@@ -86,6 +89,23 @@ function fromHoursAndMinutesSigned(result: RegExpMatchArray): number | null {
   return correctedSign * totalSeconds;
 }
 
+function from12HoursClock(result: RegExpMatchArray): number | null {
+  let hours = extractHours(result);
+  const minutes = extractMinutes(result);
+  const abbreviation = extractAbbreviation(result);
+
+  if (hours > HOURS_IN_12_CLOCK || minutes > MINUTES_IN_HOUR - 1) {
+    return null;
+  }
+
+  if (abbreviation === 'pm') {
+    hours = hours + HOURS_IN_12_CLOCK;
+  }
+
+  const totalSeconds = hours * SECONDS_IN_HOUR + minutes * SECONDS_IN_MINUTE;
+  return totalSeconds;
+}
+
 interface TimeParserResult {
   isValid: boolean;
   seconds?: number | null;
@@ -115,6 +135,13 @@ export class TimeParser {
 
   private parseRules(value: string): number | null {
     const rules = [
+      // 12 hours clock, am/pm
+      new TimeParseRule(
+        /^(?<hours>\d{1,2}):(?<minutes>\d{2})(?<abbreviation>[ap]m)$/giu,
+        value,
+        from12HoursClock
+      ),
+
       // positive or negative 1-digit or 2-digit hours
       new TimeParseRule(
         /^(?<sign>-)?(?<hours>\d{1,2})h$/giu,
