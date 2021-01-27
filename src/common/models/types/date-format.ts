@@ -1,6 +1,7 @@
 export type DateFormat =
+  | 'mm-DD-yyyy'
   | 'dd-MM-yyyy'
-  | 'yyyy/MM/dd'
-  | 'yyyy-MM-dd HH:mm:ss'
-  | 'yyyy-MM-dd HH:mm:ss zzz'
-  | 'EEEE';
+  | 'yyyy-MM-dd'
+  | 'yyyy.MM.dd'
+  | 'dd.MM.yyyy'
+  | 'yyyy/MM/dd';

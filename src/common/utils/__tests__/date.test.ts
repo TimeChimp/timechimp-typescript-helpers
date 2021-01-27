@@ -1,7 +1,14 @@
 import { TcDate } from '../date';
-import dayjs from 'dayjs';
 
 describe('utils/date', () => {
+  describe('formatDate', () => {
+    it('should format a date', () => {
+      const date = new Date(2020, 1, 1, 1, 1, 0, 0);
+
+      expect(new TcDate(date).format('h:mma')).toBe('1:01am');
+    });
+  });
+
   describe('getDateWithoutTimeAsUTC', () => {
     it('should convert a date without time correctly', () => {
       const dateWithoutTime = new Date(2020, 1, 1, 0, 0, 0, 0);
@@ -78,17 +85,17 @@ describe('utils/date', () => {
   describe('getDateOfIsoWeek: convert an ISO-8601 week and an ISO-8601 year to an ISO-8601 start date', () => {
     it('week 1 of 2021 start on 04.01.2021', () => {
       expect(
-        dayjs(new TcDate().getDateOfIsoWeek(1, 2021)).format('YYYY-MM-DD')
+        new TcDate(new TcDate().getDateOfIsoWeek(1, 2021)).format('yyyy-MM-dd')
       ).toBe('2021-01-04');
     });
     it('week 2 of 2021 start on 11.01.2021', () => {
       expect(
-        dayjs(new TcDate().getDateOfIsoWeek(2, 2021)).format('YYYY-MM-DD')
+        new TcDate(new TcDate().getDateOfIsoWeek(2, 2021)).format('yyyy-MM-dd')
       ).toBe('2021-01-11');
     });
     it('week 53 of 2020 start on 28.12.2020', () => {
       expect(
-        dayjs(new TcDate().getDateOfIsoWeek(53, 2020)).format('YYYY-MM-DD')
+        new TcDate(new TcDate().getDateOfIsoWeek(53, 2020)).format('yyyy-MM-dd')
       ).toBe('2020-12-28');
     });
   });
@@ -113,26 +120,26 @@ describe('utils/date', () => {
     });
 
     it('should properly translate weekdays in Dutch', () => {
-      expect(new TcDate(new Date(2020, 11, 7)).getDayShortName('nl-be')).toBe(
-        'Ma. 7'
+      expect(new TcDate(new Date(2020, 11, 7)).getDayShortName('nl-NL')).toBe(
+        'Maa 7'
       );
-      expect(new TcDate(new Date(2020, 11, 8)).getDayShortName('nl')).toBe(
-        'Di. 8'
+      expect(new TcDate(new Date(2020, 11, 8)).getDayShortName('nl-NL')).toBe(
+        'Din 8'
       );
-      expect(new TcDate(new Date(2020, 11, 9)).getDayShortName('nl-be')).toBe(
-        'Wo. 9'
+      expect(new TcDate(new Date(2020, 11, 9)).getDayShortName('nl-NL')).toBe(
+        'Woe 9'
       );
       expect(new TcDate(new Date(2020, 11, 10)).getDayShortName('nl-NL')).toBe(
-        'Do. 10'
+        'Don 10'
       );
       expect(new TcDate(new Date(2020, 11, 11)).getDayShortName('nl-NL')).toBe(
-        'Vr. 11'
+        'Vri 11'
       );
       expect(new TcDate(new Date(2020, 11, 12)).getDayShortName('nl-NL')).toBe(
-        'Za. 12'
+        'Zat 12'
       );
       expect(new TcDate(new Date(2020, 11, 13)).getDayShortName('nl-NL')).toBe(
-        'Zo. 13'
+        'Zon 13'
       );
     });
   });
