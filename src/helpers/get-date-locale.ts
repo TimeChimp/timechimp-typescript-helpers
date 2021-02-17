@@ -1,5 +1,7 @@
 import { SupportedLocale } from '../common/models/types/supported-locales';
-import { enUS, enGB, nl } from 'date-fns/locale';
+import nl from 'date-fns/locale/nl';
+import enUS from 'date-fns/locale/en-US';
+import enGB from 'date-fns/locale/en-GB';
 
 export const getDateLocale = (locale: SupportedLocale) => {
   const locales = {
