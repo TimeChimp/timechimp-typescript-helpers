@@ -27,6 +27,16 @@
       "pre-commit": "tsdx lint src"
     }
   },
+  "size-limit": [
+    {
+      "path": "dist/timechimp-typescript-helpers.cjs.production.min.js",
+      "limit": "120 KB"
+    },
+    {
+      "path": "dist/timechimp-typescript-helpers.esm.js",
+      "limit": "25 KB"
+    }
+  ],
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -34,10 +44,12 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.9.1",
     "@types/accounting": "^0.4.1",
     "@types/jest": "^26.0.20",
     "husky": "^4.3.8",
     "np": "^7.2.0",
+    "size-limit": "^4.9.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
