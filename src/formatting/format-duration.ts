@@ -5,7 +5,7 @@ import { NumberFormat } from '../common/models/types/number-format';
 export const formatDuration = (
   seconds: number,
   format: DurationFormat = 'HH:mm',
-  decimalFormat: NumberFormat = 'comma'
+  decimalFormat: NumberFormat = '1,234.56'
 ) => {
   if (isNaN(seconds)) {
     seconds = 0;

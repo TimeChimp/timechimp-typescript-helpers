@@ -72,7 +72,11 @@ describe('TimeEntryDurationField', () => {
 
     validInputs.forEach(({ input, expectedResult }) => {
       expect(
-        formatDuration(new TimeParser(input).parse().seconds!, 'HH:mm', 'comma')
+        formatDuration(
+          new TimeParser(input).parse().seconds!,
+          'HH:mm',
+          '1,234.56'
+        )
       ).toBe(expectedResult);
       expect(new TimeParser(input).parse().isValid).toBe(true);
     });
