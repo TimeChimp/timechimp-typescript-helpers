@@ -1,1 +1,1 @@
-export type NumberFormat = 'dot' | 'space' | 'comma' | 'apostrophe';
+export type NumberFormat = '1,234.56' | '1.234,56' | '1 234,56';
