@@ -7,7 +7,7 @@ export function formatDistance(
   distance: Distance,
   symbol: boolean = true,
   precision: number = 2,
-  numberFormat: NumberFormat = 'comma'
+  numberFormat: NumberFormat = '1,234.56'
 ) {
   let converted;
 
