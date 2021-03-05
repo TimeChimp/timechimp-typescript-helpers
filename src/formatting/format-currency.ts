@@ -7,7 +7,7 @@ import { NumberFormat } from '../common/models/types/number-format';
 export function formatCurrency(
   input: number,
   currency: string = 'EUR',
-  numberFormat: NumberFormat = 'comma'
+  numberFormat: NumberFormat = '1,234.56'
 ): string {
   const currencies = getCurrencies();
 
@@ -38,24 +38,24 @@ export function formatCurrency(
   }
 
   switch (numberFormat) {
-    case 'dot':
+    case '1.234,56':
       return accounting.formatMoney(input, {
         ...result,
-        decimal: '.',
-        thousand: ',',
+        decimal: ',',
+        thousand: '.',
       });
-    case 'space':
+    case '1 234,56':
       return accounting.formatMoney(input, {
         ...result,
         decimal: ',',
         thousand: ' ',
       });
-    case 'comma':
+    case '1,234.56':
     default:
       return accounting.formatMoney(input, {
         ...result,
-        decimal: ',',
-        thousand: '.',
+        decimal: '.',
+        thousand: ',',
       });
   }
 }
