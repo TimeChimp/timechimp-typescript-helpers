@@ -1,11 +1,41 @@
 import { TcDate } from '../date';
 
+const MINUTES_IN_HOUR = 60;
+
 describe('utils/date', () => {
-  describe('formatDate', () => {
+  describe('format', () => {
     it('should format a date', () => {
       const date = new Date(2020, 1, 1, 1, 1, 0, 0);
 
       expect(new TcDate(date).format('h:mma')).toBe('1:01am');
+    });
+
+    it('should format a date with a locale', () => {
+      const date = new Date(2020, 1, 1, 1, 1, 0, 0);
+
+      expect(new TcDate(date).format('h:mma', 'nl-NL')).toBe('1:01am');
+    });
+
+    it('should format a utc date to a local timezone', () => {
+      const date = new Date(Date.UTC(2020, 1, 1, 1, 1, 0, 0));
+      const timezoneOffsetInHours =
+        new Date().getTimezoneOffset() / MINUTES_IN_HOUR;
+      const timeInHours = 1 - timezoneOffsetInHours;
+
+      expect(new TcDate(date).format('H:mm', 'nl-NL')).toBe(
+        `${timeInHours}:01`
+      );
+    });
+
+    it('should treat input without timezone as UTC', () => {
+      const date = '2021-03-24T06:00:00';
+      const timezoneOffsetInHours =
+        new Date().getTimezoneOffset() / MINUTES_IN_HOUR;
+      const timeInHours = 6 - timezoneOffsetInHours;
+
+      expect(new TcDate(date).format('H:mm', 'nl-NL')).toBe(
+        `${timeInHours}:00`
+      );
     });
   });
 

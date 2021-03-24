@@ -1,5 +1,5 @@
 export type DateFormat =
-  | 'mm-DD-yyyy'
+  | 'MM-dd-yyyy'
   | 'dd-MM-yyyy'
   | 'yyyy-MM-dd'
   | 'yyyy.MM.dd'
