@@ -65,8 +65,8 @@ import {
   getYear,
   format,
   parse,
-  parseISO,
   differenceInMilliseconds,
+  parseJSON,
 } from 'date-fns';
 import getISOWeekYear from 'date-fns/getISOWeekYear';
 import getISOWeek from 'date-fns/getISOWeek';
@@ -84,7 +84,7 @@ export class TcDate {
       if (format) {
         this.date = parse(date, format, new Date());
       } else {
-        this.date = parseISO(date);
+        this.date = parseJSON(date);
       }
     } else {
       this.date = date;
@@ -96,12 +96,15 @@ export class TcDate {
   }
 
   public format(template: string, locale: SupportedLocale = 'en-US') {
+    let dateLocale = locale;
     // fix for date fns to make am/pm lowercase: https://github.com/date-fns/date-fns/issues/946
     if (template === 'h:mma') {
       template = "h:mmaaaaa'm'";
+      // fix doesn't work with nl-NL locale
+      dateLocale = 'en-US';
     }
 
-    return format(this.date, template, { locale: getDateLocale(locale) });
+    return format(this.date, template, { locale: getDateLocale(dateLocale) });
   }
 
   public add(amount: number, type: Time): TcDate {
