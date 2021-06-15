@@ -201,6 +201,13 @@ export class TimeParser {
         fromHoursAndMinutesSigned
       ),
 
+      // 2 digits with separator
+      new TimeParseRule(
+        /^(?<hours>\d{1,2}):(?<minutes>\d{2})$/giu,
+        value,
+        fromHoursAndMinutesSigned
+      ),
+
       // Scenario for single digits with separator
       new TimeParseRule(
         /^(?<sign>-)?(?<hours>\d[,.;]\d)$/giu,
