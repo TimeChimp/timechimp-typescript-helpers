@@ -19,7 +19,7 @@ describe('utils/date', () => {
     it('should format a utc date to a local timezone', () => {
       const date = new Date(Date.UTC(2020, 1, 1, 1, 1, 0, 0));
       const timezoneOffsetInHours =
-        new Date().getTimezoneOffset() / MINUTES_IN_HOUR;
+        new Date(2020, 0, 1).getTimezoneOffset() / MINUTES_IN_HOUR;
       const timeInHours = 1 - timezoneOffsetInHours;
 
       expect(new TcDate(date).format('H:mm', 'nl-NL')).toBe(
@@ -30,7 +30,7 @@ describe('utils/date', () => {
     it('should treat input without timezone as UTC', () => {
       const date = '2021-03-24T06:00:00';
       const timezoneOffsetInHours =
-        new Date().getTimezoneOffset() / MINUTES_IN_HOUR;
+        new Date(2021, 2, 24).getTimezoneOffset() / MINUTES_IN_HOUR;
       const timeInHours = 6 - timezoneOffsetInHours;
 
       expect(new TcDate(date).format('H:mm', 'nl-NL')).toBe(
