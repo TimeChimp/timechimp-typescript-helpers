@@ -32,3 +32,4 @@ export {
   setInputValueByName,
   setInputCheckedByName,
 } from './get-input-value-by-name';
+export * from './timer';
