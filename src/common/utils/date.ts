@@ -95,13 +95,13 @@ export class TcDate {
     return this.date;
   }
 
-  public format(template: string, locale: SupportedLocale = 'en-US') {
+  public format(template: string, locale: SupportedLocale = 'en') {
     let dateLocale = locale;
     // fix for date fns to make am/pm lowercase: https://github.com/date-fns/date-fns/issues/946
     if (template === 'h:mma') {
       template = "h:mmaaaaa'm'";
       // fix doesn't work with nl-NL locale
-      dateLocale = 'en-US';
+      dateLocale = 'en';
     }
 
     return format(this.date, template, { locale: getDateLocale(dateLocale) });
