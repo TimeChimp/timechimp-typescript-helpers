@@ -104,7 +104,17 @@ export class TcDate {
       dateLocale = 'en';
     }
 
-    return format(this.date, template, { locale: getDateLocale(dateLocale) });
+    const listOfTemplates = {
+      ['DD/MM/YYYY']: 'dd/MM/yyyy',
+      ['YYYY/MM/DD']: 'yyyy/MM/dd',
+      ['MM/DD/YYYY']: 'MM/dd/yyyy',
+      ['DD-MM-YYYY']: 'dd-MM-yyyy',
+      ['YYYY-MM-DD']: 'yyyy-MM-dd',
+      ['DD.MM.YYYY']: 'dd.MM.yyyy',
+      ['YYYY.MM.DD']: 'yyyy.MM.dd',
+    };
+
+    return format(this.date, listOfTemplates[template] || template, { locale: getDateLocale(dateLocale) });
   }
 
   public add(amount: number, type: Time): TcDate {
