@@ -2,9 +2,6 @@ import { NumberFormat } from '../../common/models/types/number-format';
 import { unformatCurrency } from '../unformat-currency';
 
 describe('Unformat currency', () => {
-  const COMMA_NUMBER_FORMAT = '1.234,56';
-  const DOT_NUMBER_FORMAT = '1,234.56';
-
   const testCases: {
     input: string;
     expected: number;
@@ -13,37 +10,37 @@ describe('Unformat currency', () => {
     {
       input: '$100,00',
       expected: 100,
-      numberFormat: COMMA_NUMBER_FORMAT,
+      numberFormat: NumberFormat.Dot,
     },
     {
       input: '$ 100,00',
       expected: 100,
-      numberFormat: COMMA_NUMBER_FORMAT,
+      numberFormat: NumberFormat.Dot,
     },
     {
       input: '100,00$',
       expected: 100,
-      numberFormat: COMMA_NUMBER_FORMAT,
+      numberFormat: NumberFormat.Dot,
     },
     {
       input: '100,00 $',
       expected: 100,
-      numberFormat: COMMA_NUMBER_FORMAT,
+      numberFormat: NumberFormat.Dot,
     },
     {
       input: '100,00',
       expected: 100,
-      numberFormat: COMMA_NUMBER_FORMAT,
+      numberFormat: NumberFormat.Dot,
     },
     {
       input: '$100.00',
       expected: 100,
-      numberFormat: DOT_NUMBER_FORMAT,
+      numberFormat: NumberFormat.Comma,
     },
     {
       input: '-$100.00',
       expected: -100,
-      numberFormat: DOT_NUMBER_FORMAT,
+      numberFormat: NumberFormat.Comma,
     },
   ];
 

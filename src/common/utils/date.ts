@@ -71,6 +71,7 @@ import {
 import getISOWeekYear from 'date-fns/getISOWeekYear';
 import getISOWeek from 'date-fns/getISOWeek';
 import getISODay from 'date-fns/getISODay';
+import { mapTcDateFormatToDateFnsDateFormat } from '../../mappers';
 
 export class TcDate {
   private date: Date;
@@ -104,17 +105,9 @@ export class TcDate {
       dateLocale = 'en';
     }
 
-    const listOfTemplates: any = {
-      ['DD/MM/YYYY']: 'dd/MM/yyyy',
-      ['YYYY/MM/DD']: 'yyyy/MM/dd',
-      ['MM/DD/YYYY']: 'MM/dd/yyyy',
-      ['DD-MM-YYYY']: 'dd-MM-yyyy',
-      ['YYYY-MM-DD']: 'yyyy-MM-dd',
-      ['DD.MM.YYYY']: 'dd.MM.yyyy',
-      ['YYYY.MM.DD']: 'yyyy.MM.dd',
-    };
+    const mappedTemplate = mapTcDateFormatToDateFnsDateFormat(template);
 
-    return format(this.date, listOfTemplates[template] || template, {
+    return format(this.date, mappedTemplate, {
       locale: getDateLocale(dateLocale),
     });
   }

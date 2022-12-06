@@ -33,6 +33,14 @@ describe('utils/date', () => {
 
       expect(new TcDate(date).format('H:mm', 'nl')).toBe(`${timeInHours}:00`);
     });
+
+    it('should correctly format a TimeChimp date format', () => {
+      const date = new Date(2020, 1, 1, 1, 1, 0, 0);
+
+      expect(new TcDate(date).format('DD/MM/YYYY')).toBe('01/02/2020');
+      expect(new TcDate(date).format('DD.MM.YYYY')).toBe('01.02.2020');
+      expect(new TcDate(date).format('YYYY-MM-DD')).toBe('2020-02-01');
+    });
   });
 
   describe('getDateWithoutTimeAsUTC', () => {

@@ -1,18 +1,21 @@
 import accounting from 'accounting';
-import { NumberFormat } from '../common/models/types/number-format';
+import { NumberFormat } from '../common';
 
 export function formatNumber(
   input: number,
   precision: number = 2,
-  numberFormat: NumberFormat = '1,234.56'
+  numberFormat: NumberFormat = NumberFormat.Dot
 ) {
-  switch (numberFormat) {
-    case '1.234,56':
-      return accounting.formatNumber(input, precision, '.', ',');
-    case '1 234,56':
-      return accounting.formatNumber(input, precision, ' ', ',');
-    case '1,234.56':
-    default:
-      return accounting.formatNumber(input, precision, ',', '.');
-  }
+  const map = {
+    [NumberFormat.Dot]: () =>
+      accounting.formatNumber(input, precision, '.', ','),
+    [NumberFormat.Comma]: () =>
+      accounting.formatNumber(input, precision, ',', '.'),
+    [NumberFormat.Space]: () =>
+      accounting.formatNumber(input, precision, ',', ' '),
+    [NumberFormat.Apostrophe]: () =>
+      accounting.formatNumber(input, precision, ',', "'"),
+  };
+
+  return map[numberFormat]();
 }
