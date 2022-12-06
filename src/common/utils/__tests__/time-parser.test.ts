@@ -1,3 +1,4 @@
+import { NumberFormat } from '../../../common';
 import { formatDuration } from '../../../formatting/format-duration';
 import { TimeParser } from '../time-parser';
 
@@ -76,7 +77,7 @@ describe('TimeEntryDurationField', () => {
         formatDuration(
           new TimeParser(input).parse().seconds!,
           'HH:mm',
-          '1,234.56'
+          NumberFormat.Comma
         )
       ).toBe(expectedResult);
       expect(new TimeParser(input).parse().isValid).toBe(true);
