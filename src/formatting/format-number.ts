@@ -12,9 +12,9 @@ export function formatNumber(
     [NumberFormat.Comma]: () =>
       accounting.formatNumber(input, precision, ',', '.'),
     [NumberFormat.Space]: () =>
-      accounting.formatNumber(input, precision, ',', ' '),
+      accounting.formatNumber(input, precision, ' ', ','),
     [NumberFormat.Apostrophe]: () =>
-      accounting.formatNumber(input, precision, ',', "'"),
+      accounting.formatNumber(input, precision, "'", '.'),
   };
 
   return map[numberFormat]();
