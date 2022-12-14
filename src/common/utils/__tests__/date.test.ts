@@ -13,29 +13,33 @@ describe('utils/date', () => {
     it('should format a date with a locale', () => {
       const date = new Date(2020, 1, 1, 1, 1, 0, 0);
 
-      expect(new TcDate(date).format('h:mma', 'nl-NL')).toBe('1:01am');
+      expect(new TcDate(date).format('h:mma', 'nl')).toBe('1:01am');
     });
 
     it('should format a utc date to a local timezone', () => {
       const date = new Date(Date.UTC(2020, 1, 1, 1, 1, 0, 0));
       const timezoneOffsetInHours =
-        new Date().getTimezoneOffset() / MINUTES_IN_HOUR;
+        new Date(2020, 0, 1).getTimezoneOffset() / MINUTES_IN_HOUR;
       const timeInHours = 1 - timezoneOffsetInHours;
 
-      expect(new TcDate(date).format('H:mm', 'nl-NL')).toBe(
-        `${timeInHours}:01`
-      );
+      expect(new TcDate(date).format('H:mm', 'nl')).toBe(`${timeInHours}:01`);
     });
 
     it('should treat input without timezone as UTC', () => {
       const date = '2021-03-24T06:00:00';
       const timezoneOffsetInHours =
-        new Date().getTimezoneOffset() / MINUTES_IN_HOUR;
+        new Date(2021, 2, 24).getTimezoneOffset() / MINUTES_IN_HOUR;
       const timeInHours = 6 - timezoneOffsetInHours;
 
-      expect(new TcDate(date).format('H:mm', 'nl-NL')).toBe(
-        `${timeInHours}:00`
-      );
+      expect(new TcDate(date).format('H:mm', 'nl')).toBe(`${timeInHours}:00`);
+    });
+
+    it('should correctly format a TimeChimp date format', () => {
+      const date = new Date(2020, 1, 1, 1, 1, 0, 0);
+
+      expect(new TcDate(date).format('DD/MM/YYYY')).toBe('01/02/2020');
+      expect(new TcDate(date).format('DD.MM.YYYY')).toBe('01.02.2020');
+      expect(new TcDate(date).format('YYYY-MM-DD')).toBe('2020-02-01');
     });
   });
 
@@ -150,25 +154,25 @@ describe('utils/date', () => {
     });
 
     it('should properly translate weekdays in Dutch', () => {
-      expect(new TcDate(new Date(2020, 11, 7)).getDayShortName('nl-NL')).toBe(
+      expect(new TcDate(new Date(2020, 11, 7)).getDayShortName('nl')).toBe(
         'Maa 7'
       );
-      expect(new TcDate(new Date(2020, 11, 8)).getDayShortName('nl-NL')).toBe(
+      expect(new TcDate(new Date(2020, 11, 8)).getDayShortName('nl')).toBe(
         'Din 8'
       );
-      expect(new TcDate(new Date(2020, 11, 9)).getDayShortName('nl-NL')).toBe(
+      expect(new TcDate(new Date(2020, 11, 9)).getDayShortName('nl')).toBe(
         'Woe 9'
       );
-      expect(new TcDate(new Date(2020, 11, 10)).getDayShortName('nl-NL')).toBe(
+      expect(new TcDate(new Date(2020, 11, 10)).getDayShortName('nl')).toBe(
         'Don 10'
       );
-      expect(new TcDate(new Date(2020, 11, 11)).getDayShortName('nl-NL')).toBe(
+      expect(new TcDate(new Date(2020, 11, 11)).getDayShortName('nl')).toBe(
         'Vri 11'
       );
-      expect(new TcDate(new Date(2020, 11, 12)).getDayShortName('nl-NL')).toBe(
+      expect(new TcDate(new Date(2020, 11, 12)).getDayShortName('nl')).toBe(
         'Zat 12'
       );
-      expect(new TcDate(new Date(2020, 11, 13)).getDayShortName('nl-NL')).toBe(
+      expect(new TcDate(new Date(2020, 11, 13)).getDayShortName('nl')).toBe(
         'Zon 13'
       );
     });

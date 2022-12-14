@@ -1,1 +1,6 @@
-export type NumberFormat = '1,234.56' | '1.234,56' | '1 234,56';
+export enum NumberFormat {
+  Dot = 'dot',
+  Comma = 'comma',
+  Space = 'space',
+  Apostrophe = 'apostrophe',
+}

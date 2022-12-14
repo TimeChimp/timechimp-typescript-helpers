@@ -1,3 +1,4 @@
+import { NumberFormat } from '../../common';
 import { formatCurrency } from '../format-currency';
 
 describe('Format currency', () => {
@@ -5,7 +6,7 @@ describe('Format currency', () => {
     const currency = 'USD';
     const amount = 100;
 
-    const result = formatCurrency(amount, currency, '1,234.56');
+    const result = formatCurrency(amount, currency, NumberFormat.Comma);
     expect(result).toEqual('$100.00');
   });
 
@@ -13,7 +14,7 @@ describe('Format currency', () => {
     const currency = 'Baltus';
     const amount = 100;
 
-    const result = formatCurrency(amount, currency, '1.234,56');
+    const result = formatCurrency(amount, currency, NumberFormat.Dot);
     expect(result).toEqual('€100,00');
   });
 
@@ -21,6 +22,6 @@ describe('Format currency', () => {
     const amount = 100;
 
     const result = formatCurrency(amount);
-    expect(result).toEqual('€100.00');
+    expect(result).toEqual('€100,00');
   });
 });

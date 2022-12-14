@@ -71,6 +71,7 @@ import {
 import getISOWeekYear from 'date-fns/getISOWeekYear';
 import getISOWeek from 'date-fns/getISOWeek';
 import getISODay from 'date-fns/getISODay';
+import { mapTcDateFormatToDateFnsDateFormat } from '../../mappers';
 
 export class TcDate {
   private date: Date;
@@ -95,16 +96,16 @@ export class TcDate {
     return this.date;
   }
 
-  public format(template: string, locale: SupportedLocale = 'en-US') {
-    let dateLocale = locale;
-    // fix for date fns to make am/pm lowercase: https://github.com/date-fns/date-fns/issues/946
+  public format(template: string, locale: SupportedLocale = 'en') {
     if (template === 'h:mma') {
-      template = "h:mmaaaaa'm'";
-      // fix doesn't work with nl-NL locale
-      dateLocale = 'en-US';
+      template = 'h:mmaaa';
     }
 
-    return format(this.date, template, { locale: getDateLocale(dateLocale) });
+    const mappedTemplate = mapTcDateFormatToDateFnsDateFormat(template);
+
+    return format(this.date, mappedTemplate, {
+      locale: getDateLocale(locale),
+    });
   }
 
   public add(amount: number, type: Time): TcDate {

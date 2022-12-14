@@ -1,13 +1,13 @@
 import { SupportedLocale } from '../common/models/types/supported-locales';
 import nl from 'date-fns/locale/nl';
-import enUS from 'date-fns/locale/en-US';
 import enGB from 'date-fns/locale/en-GB';
+import de from 'date-fns/locale/de';
 
 export const getDateLocale = (locale: SupportedLocale) => {
   const locales = {
-    'nl-NL': nl,
-    'en-US': enUS,
-    'en-GB': enGB,
+    nl: nl,
+    en: enGB,
+    de: de,
   };
 
   return locales[locale];

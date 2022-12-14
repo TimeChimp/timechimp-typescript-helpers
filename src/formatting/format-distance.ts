@@ -1,13 +1,12 @@
 import { formatNumber } from './format-number';
-import { Distance } from '../common/models/types/distance';
-import { NumberFormat } from '../common/models/types/number-format';
+import { DistanceFormat, NumberFormat } from '../common';
 
 export function formatDistance(
   input: number,
-  distance: Distance,
+  distance: DistanceFormat,
   symbol: boolean = true,
   precision: number = 2,
-  numberFormat: NumberFormat = '1,234.56'
+  numberFormat: NumberFormat = NumberFormat.Dot
 ) {
   let converted;
 

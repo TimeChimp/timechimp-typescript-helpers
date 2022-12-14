@@ -1,1 +1,1 @@
-export type SupportedLocale = 'nl-NL' | 'en-US' | 'en-GB';
+export type SupportedLocale = 'nl' | 'en' | 'de';

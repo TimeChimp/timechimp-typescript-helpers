@@ -1,4 +1,4 @@
-import { DurationFormat } from '../../common/models/types/duration-format';
+import { DurationFormat } from '../../common';
 import { formatDuration } from '../format-duration';
 
 describe('format should work correctly', () => {
