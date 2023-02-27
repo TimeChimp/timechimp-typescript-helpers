@@ -10,6 +10,7 @@ describe('Format time', () => {
       { input: 12.5, expectedResult: '12:30' },
       { input: 40, expectedResult: '40:00' },
       { input: 44.5, expectedResult: '44:30' },
+      { input: 0.8333333333333333, expectedResult: '00:50' },
     ];
 
     inputs.forEach(({ input, expectedResult }) =>
@@ -23,6 +24,7 @@ describe('Format time', () => {
       { input: 12.5, expectedResult: '12:30:00' },
       { input: 40, expectedResult: '40:00:00' },
       { input: 44.5, expectedResult: '44:30:00' },
+      { input: 0.8333333333333333, expectedResult: '00:49:59' },
     ];
 
     inputs.forEach(({ input, expectedResult }) =>
