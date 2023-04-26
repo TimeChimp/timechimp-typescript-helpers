@@ -3,71 +3,69 @@ import { BetweenDate } from '../models/types/between-date';
 import { WeekStartDay } from '../models/types/week-start-day';
 import { getDateLocale } from '../../helpers/get-date-locale';
 import { SupportedLocale } from '../models/types/supported-locales';
-import {
-  addMonths,
-  addWeeks,
-  addMinutes,
-  addHours,
-  subSeconds,
-  subMinutes,
-  subHours,
-  subDays,
-  subWeeks,
-  subMonths,
-  subQuarters,
-  subYears,
-  addDays,
-  addQuarters,
-  addYears,
-  addSeconds,
-  differenceInMinutes,
-  differenceInHours,
-  differenceInWeeks,
-  differenceInQuarters,
-  differenceInYears,
-  startOfSecond,
-  startOfWeek,
-  startOfMonth,
-  startOfYear,
-  startOfHour,
-  startOfMinute,
-  differenceInSeconds,
-  differenceInDays,
-  differenceInMonths,
-  startOfDay,
-  startOfQuarter,
-  endOfSecond,
-  endOfMinute,
-  endOfHour,
-  endOfDay,
-  endOfWeek,
-  endOfMonth,
-  endOfQuarter,
-  endOfYear,
-  getDay,
-  getWeek,
-  isSameMonth,
-  isSameQuarter,
-  isSameYear,
-  isSameDay,
-  isSameWeek,
-  isWithinInterval,
-  isAfter,
-  isValid,
-  getDaysInMonth,
-  setDay,
-  setSeconds,
-  setMinutes,
-  setHours,
-  eachDayOfInterval,
-  subMilliseconds,
-  addMilliseconds,
-  getYear,
-  format,
-  parse,
-  differenceInMilliseconds,
-  parseJSON,
-} from 'date-fns';
+import addMonths from 'date-fns/addMonths';
+import addWeeks from 'date-fns/addWeeks';
+import addMinutes from 'date-fns/addMinutes';
+import addHours from 'date-fns/addHours';
+import subSeconds from 'date-fns/subSeconds';
+import subMinutes from 'date-fns/subMinutes';
+import subHours from 'date-fns/subHours';
+import subDays from 'date-fns/subDays';
+import subWeeks from 'date-fns/subWeeks';
+import subMonths from 'date-fns/subMonths';
+import subQuarters from 'date-fns/subQuarters';
+import subYears from 'date-fns/subYears';
+import addDays from 'date-fns/addDays';
+import addQuarters from 'date-fns/addQuarters';
+import addYears from 'date-fns/addYears';
+import addSeconds from 'date-fns/addSeconds';
+import differenceInMinutes from 'date-fns/differenceInMinutes';
+import differenceInHours from 'date-fns/differenceInHours';
+import differenceInWeeks from 'date-fns/differenceInWeeks';
+import differenceInQuarters from 'date-fns/differenceInQuarters';
+import differenceInYears from 'date-fns/differenceInYears';
+import startOfSecond from 'date-fns/startOfSecond';
+import startOfWeek from 'date-fns/startOfWeek';
+import startOfMonth from 'date-fns/startOfMonth';
+import startOfYear from 'date-fns/startOfYear';
+import startOfHour from 'date-fns/startOfHour';
+import startOfMinute from 'date-fns/startOfMinute';
+import differenceInSeconds from 'date-fns/differenceInSeconds';
+import differenceInDays from 'date-fns/differenceInDays';
+import differenceInMonths from 'date-fns/differenceInMonths';
+import startOfDay from 'date-fns/startOfDay';
+import startOfQuarter from 'date-fns/startOfQuarter';
+import endOfSecond from 'date-fns/endOfSecond';
+import endOfMinute from 'date-fns/endOfMinute';
+import endOfHour from 'date-fns/endOfHour';
+import endOfDay from 'date-fns/endOfDay';
+import endOfWeek from 'date-fns/endOfWeek';
+import endOfMonth from 'date-fns/endOfMonth';
+import endOfQuarter from 'date-fns/endOfQuarter';
+import endOfYear from 'date-fns/endOfYear';
+import getDay from 'date-fns/getDay';
+import getWeek from 'date-fns/getWeek';
+import isSameMonth from 'date-fns/isSameMonth';
+import isSameQuarter from 'date-fns/isSameQuarter';
+import isSameYear from 'date-fns/isSameYear';
+import isSameDay from 'date-fns/isSameDay';
+import isSameWeek from 'date-fns/isSameWeek';
+import isWithinInterval from 'date-fns/isWithinInterval';
+import isAfter from 'date-fns/isAfter';
+import isValid from 'date-fns/isValid';
+import getDaysInMonth from 'date-fns/getDaysInMonth';
+import setDay from 'date-fns/setDay';
+import setSeconds from 'date-fns/setSeconds';
+import setMinutes from 'date-fns/setMinutes';
+import setHours from 'date-fns/setHours';
+import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+import subMilliseconds from 'date-fns/subMilliseconds';
+import addMilliseconds from 'date-fns/addMilliseconds';
+import getYear from 'date-fns/getYear';
+import format from 'date-fns/format';
+import parse from 'date-fns/parse';
+import differenceInMilliseconds from 'date-fns/differenceInMilliseconds';
+import parseJSON from 'date-fns/parseJSON';
 import getISOWeekYear from 'date-fns/getISOWeekYear';
 import getISOWeek from 'date-fns/getISOWeek';
 import getISODay from 'date-fns/getISODay';
