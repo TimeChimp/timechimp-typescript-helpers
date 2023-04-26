@@ -540,4 +540,12 @@ export class TcDate {
       )
     );
   };
+
+  public startOfWeek = (weekStartDay?: WeekStartDay) => {
+    return startOfWeek(this.date, { weekStartsOn: weekStartDay });
+  };
+
+  public startOfMonth = () => {
+    return startOfMonth(this.date);
+  };
 }

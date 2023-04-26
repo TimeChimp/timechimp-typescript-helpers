@@ -224,4 +224,26 @@ describe('utils/date', () => {
       expect(year).toBe(2021);
     });
   });
+
+  describe('startOfWeek', () => {
+    it('should get the start of week with monday', () => {
+      const convertedDate = new TcDate(new Date(2014, 8, 2, 11, 55, 0)).startOfWeek(1);
+      
+      expect(convertedDate.getFullYear()).toBe(2014);
+      expect(convertedDate.getMonth()).toBe(8);
+      expect(convertedDate.getDate()).toBe(1);
+    });
+  });
+
+  describe('startOfMonth', () => {
+    it('should get the start of januari', () => {
+      const dateWithoutTime = new Date(2020, 1, 14, 0, 0, 0, 0);
+
+      const convertedDate = new TcDate(dateWithoutTime).startOfMonth();
+
+      expect(convertedDate.getFullYear()).toBe(2020);
+      expect(convertedDate.getMonth()).toBe(1);
+      expect(convertedDate.getDate()).toBe(1);
+    });
+  });
 });
