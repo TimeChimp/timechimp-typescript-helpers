@@ -7,25 +7,26 @@
   "version": "2.0.4",
   "license": "MIT",
   "author": "TimeChimp",
-  "main": "dist/index.js",
-  "module": "dist/timechimp-typescript-helpers.esm.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint src",
-    "lint:fix": "tsdx lint src --fix",
+    "start": "tsc --watch",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc --module esnext --outDir dist/esm",
+    "build:copy-files": "node scripts/copyFiles.mjs",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:copy-files",
+    "test": "jest --passWithNoTests",
+    "lint": "npx eslint --ext .ts,.tsx src/",
+    "lint:fix": "npm run lint -- --fix",
     "release": "npm run build && np --no-2fa"
-  },
-  "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint src"
-    }
   },
   "prettier": {
     "printWidth": 80,
@@ -36,9 +37,10 @@
   "devDependencies": {
     "@types/accounting": "^0.4.1",
     "@types/jest": "^26.0.20",
+    "fs-extra": "^11.1.1",
     "husky": "^4.3.8",
     "np": "^7.5.0",
-    "tsdx": "^0.14.1",
+    "rimraf": "^5.0.0",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
   },
