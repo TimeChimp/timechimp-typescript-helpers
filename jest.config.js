@@ -1,5 +1,10 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
+// eslint-disable-next-line no-undef
 module.exports = {
-  moduleFileExtensions: ["js", "jsx", "json", "vue", "ts", "tsx"],
-  testMatch: ["**/**/*.test.(js|jsx|ts|tsx)"],
-  collectCoverage: true
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  moduleFileExtensions: ['js', 'jsx', 'json', 'vue', 'ts', 'tsx'],
+  testMatch: ['**/**/*.test.(js|jsx|ts|tsx)'],
+  collectCoverage: true,
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
 };
