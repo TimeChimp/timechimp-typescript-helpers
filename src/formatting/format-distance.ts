@@ -4,8 +4,8 @@ import { DistanceFormat, NumberFormat } from '../common';
 export function formatDistance(
   input: number,
   distance: DistanceFormat,
-  symbol: boolean = true,
-  precision: number = 2,
+  symbol = true,
+  precision = 2,
   numberFormat: NumberFormat = NumberFormat.Dot
 ) {
   let converted;

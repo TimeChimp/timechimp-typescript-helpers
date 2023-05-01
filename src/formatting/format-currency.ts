@@ -7,7 +7,7 @@ import { NumberFormat } from '../common/models/types/number-format';
 const getSymbolFormatAndFractionSize = (currency: string) => {
   const currencies = getCurrencies();
 
-  const currencyObject = currencies.find(x => x.id === currency) || {
+  const currencyObject = currencies.find((x) => x.id === currency) || {
     id: 'EUR',
     name: 'Euro',
     fractionSize: 2,
@@ -36,7 +36,7 @@ const getSymbolFormatAndFractionSize = (currency: string) => {
 
 export function formatCurrency(
   input: number,
-  currency: string = 'EUR',
+  currency = 'EUR',
   numberFormat: NumberFormat = NumberFormat.Dot
 ): string {
   const result = getSymbolFormatAndFractionSize(currency);

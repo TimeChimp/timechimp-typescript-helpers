@@ -8,10 +8,7 @@ const SECONDS_IN_HOUR = SECONDS_IN_MINUTE * MINUTES_IN_HOUR;
 describe('Day entry formatting', () => {
   it('should calculate start/end/duration combination correctly', () => {
     const getDateFrom00 = (hours = 0, minutes = 0) =>
-      new TcDate()
-        .startOf('day')
-        .add(hours, 'hour')
-        .add(minutes, 'minute');
+      new TcDate().startOf('day').add(hours, 'hour').add(minutes, 'minute');
 
     const testConditions = [
       {

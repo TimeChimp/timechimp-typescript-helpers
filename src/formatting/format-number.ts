@@ -3,7 +3,7 @@ import { NumberFormat } from '../common';
 
 export function formatNumber(
   input: number,
-  precision: number = 2,
+  precision = 2,
   numberFormat: NumberFormat = NumberFormat.Dot
 ) {
   const map = {

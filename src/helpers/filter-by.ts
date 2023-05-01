@@ -3,9 +3,9 @@ export function filterBy<T>(list: T[], props: string[], query: string): T[] {
     return list;
   }
 
-  return [...list].filter(item => {
+  return [...list].filter((item) => {
     let match = false;
-    props.forEach(prop => {
+    props.forEach((prop) => {
       if (
         (item as any)[prop] &&
         (item as any)[prop].toLowerCase().includes(query.toLowerCase())
