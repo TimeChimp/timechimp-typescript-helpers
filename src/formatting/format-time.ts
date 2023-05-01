@@ -7,9 +7,11 @@ export const formatHoursAsHrsMinsSecs = (
   const millis = hours * 3600000;
 
   if (showSeconds) {
-    const { hours: h, minutes: m, seconds: s } = convertMillisToHrsMinsSecs(
-      millis
-    );
+    const {
+      hours: h,
+      minutes: m,
+      seconds: s,
+    } = convertMillisToHrsMinsSecs(millis);
     return `${h}:${m}:${s}`;
   }
 
@@ -22,9 +24,11 @@ export const formatMillisAsHrsMinsSecs = (
   showSeconds = false
 ) => {
   if (showSeconds) {
-    const { hours: h, minutes: m, seconds: s } = convertMillisToHrsMinsSecs(
-      millis
-    );
+    const {
+      hours: h,
+      minutes: m,
+      seconds: s,
+    } = convertMillisToHrsMinsSecs(millis);
     return `${h}:${m}:${s}`;
   }
 

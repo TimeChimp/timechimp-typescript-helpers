@@ -16,7 +16,7 @@ describe('TimeEntryDurationField', () => {
       '01:010',
     ];
 
-    invalidInputs.forEach(input => {
+    invalidInputs.forEach((input) => {
       expect(new TimeParser(input).parse().isValid).toBe(false);
     });
   });

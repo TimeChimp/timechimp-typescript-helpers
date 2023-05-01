@@ -41,11 +41,11 @@ describe('format should work correctly', () => {
   });
 
   it('should return "00:00" if seconds is not a number', () => {
-    // @ts-ignore - testing invalid input
+    // @ts-expect-error - testing invalid input
     expect(formatDuration(undefined)).toBe('00:00');
-    // @ts-ignore - testing invalid input
+    // @ts-expect-error - testing invalid input
     expect(formatDuration(null)).toBe('00:00');
-    // @ts-ignore - testing invalid input
+    // @ts-expect-error - testing invalid input
     expect(formatDuration('')).toBe('00:00');
     expect(formatDuration(NaN)).toBe('00:00');
     expect(formatDuration({} as any)).toBe('00:00');

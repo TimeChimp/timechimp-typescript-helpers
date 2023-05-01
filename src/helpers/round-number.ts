@@ -3,11 +3,12 @@ export function roundNumber(
   roundingType: string,
   roundingValue: number
 ) {
+  const str = (input / 60).toString();
+
   switch (roundingType) {
     case 'up':
       return Math.ceil(input / roundingValue) * roundingValue;
     case 'down':
-      const str = (input / 60).toString();
       return parseInt(str, 10) * 60;
     case 'nearest':
       return Math.round(input / 60) * 60;

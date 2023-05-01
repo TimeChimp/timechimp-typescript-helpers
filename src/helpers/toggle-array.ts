@@ -5,9 +5,9 @@ export function toggleArray(array: any, objs: any[]) {
 
   let arrayClone = [...array];
 
-  objs.forEach(obj => {
+  objs.forEach((obj) => {
     if (arrayClone.includes(obj)) {
-      arrayClone = arrayClone.filter(x => x !== obj);
+      arrayClone = arrayClone.filter((x) => x !== obj);
     } else {
       arrayClone.push(obj);
     }
