@@ -35,13 +35,29 @@ describe('TimeEntryDurationField', () => {
       { input: '0.5', expectedResult: '00:30' },
       { input: '0,5', expectedResult: '00:30' },
       { input: '0;5', expectedResult: '00:30' },
+      { input: '0.25', expectedResult: '00:15' },
+      { input: '0,25', expectedResult: '00:15' },
+      { input: '0;25', expectedResult: '00:15' },
+      { input: '1.25', expectedResult: '01:15' },
+      { input: '1,25', expectedResult: '01:15' },
+      { input: '1;25', expectedResult: '01:15' },
+      { input: '12.00', expectedResult: '12:00' },
+      { input: '12,00', expectedResult: '12:00' },
+      { input: '12;00', expectedResult: '12:00' },
+      { input: '12.25', expectedResult: '12:15' },
+
       { input: '12', expectedResult: '12:00' },
       { input: '123', expectedResult: '01:23' },
       { input: '1234', expectedResult: '12:34' },
       { input: '2:00', expectedResult: '02:00' },
-      { input: '03', expectedResult: '00:03' },
-      { input: '003', expectedResult: '00:03' },
-      { input: '022', expectedResult: '00:22' },
+      // NOTE: These were the old rules, but we changed them to match the behavior of the legacy app
+      // { input: '03', expectedResult: '00:03' },
+      // { input: '003', expectedResult: '00:03' },
+      // { input: '022', expectedResult: '00:22' },
+      { input: '03', expectedResult: '03:00' },
+      { input: '003', expectedResult: '03:00' },
+      { input: '022', expectedResult: '22:00' },
+
       { input: '2400', expectedResult: '24:00' },
       { input: '0.3', expectedResult: '00:18' },
       { input: '0,3', expectedResult: '00:18' },
@@ -61,9 +77,6 @@ describe('TimeEntryDurationField', () => {
       { input: '-12', expectedResult: '-12:00' },
       { input: '-123', expectedResult: '-01:23' },
       { input: '-1234', expectedResult: '-12:34' },
-      { input: '-03', expectedResult: '-00:03' },
-      { input: '-003', expectedResult: '-00:03' },
-      { input: '-022', expectedResult: '-00:22' },
       { input: '-2400', expectedResult: '-24:00' },
 
       { input: '1:00am', expectedResult: '01:00' },
@@ -73,14 +86,11 @@ describe('TimeEntryDurationField', () => {
     ];
 
     validInputs.forEach(({ input, expectedResult }) => {
-      expect(
-        formatDuration(
-          new TimeParser(input).parse().seconds!,
-          'HH:mm',
-          NumberFormat.Comma
-        )
-      ).toBe(expectedResult);
-      expect(new TimeParser(input).parse().isValid).toBe(true);
+      const { seconds, isValid } = new TimeParser(input).parse();
+      expect(formatDuration(seconds!, 'HH:mm', NumberFormat.Comma)).toBe(
+        expectedResult
+      );
+      expect(isValid).toBe(true);
     });
   });
 });

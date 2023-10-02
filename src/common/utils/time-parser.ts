@@ -42,7 +42,7 @@ const SECONDS_IN_DAY = HOURS_IN_DAY * SECONDS_IN_HOUR;
 const SIGN_MINUS = -1;
 const SIGN_PLUS = 1;
 
-const unifySeparator = (value: string) => value.replace(/[,;]/giu, '.');
+const unifySeparator = (value: string) => value.replace(/[,.;]/g, '.');
 const extractSign = (result: RegExpMatchArray) =>
   result.groups!['sign'] ? SIGN_MINUS : SIGN_PLUS;
 const extractHours = (result: RegExpMatchArray) =>
@@ -51,6 +51,8 @@ const extractMinutes = (result: RegExpMatchArray) =>
   parseInt(result.groups!['minutes'], 10);
 const extractAbbreviation = (result: RegExpMatchArray) =>
   result.groups!['abbreviation']?.toLowerCase();
+const extractDecimal = (result: RegExpMatchArray) =>
+  parseFloat(unifySeparator(result.groups!['decimal']));
 
 // Main strategies
 function fromHoursSigned(result: RegExpMatchArray): number | null {
@@ -87,6 +89,15 @@ function fromHoursAndMinutesSigned(result: RegExpMatchArray): number | null {
   }
   const correctedSign = totalSeconds === 0 ? SIGN_PLUS : sign; // edge case: zero cannot have minus mark
   return correctedSign * totalSeconds;
+}
+
+function fromDecimalSigned(result: RegExpMatchArray): number | null {
+  const sign = extractSign(result);
+  const decimalValue = extractDecimal(result);
+  if (isNaN(decimalValue) || decimalValue > HOURS_IN_DAY) {
+    return null;
+  }
+  return sign * decimalValue * SECONDS_IN_HOUR;
 }
 
 function from12HoursClock(result: RegExpMatchArray): number | null {
@@ -135,6 +146,13 @@ export class TimeParser {
 
   private parseRules(value: string): number | null {
     const rules = [
+      // decimal value
+      new TimeParseRule(
+        /^(?<sign>-)?(?<decimal>\d{1,2}[.,;]?\d{0,2})$/giu,
+        value,
+        fromDecimalSigned
+      ),
+
       // 12 hours clock, am/pm
       new TimeParseRule(
         /^(?<hours>\d{1,2}):(?<minutes>\d{2})(?<abbreviation>[ap]m)$/giu,
@@ -215,18 +233,18 @@ export class TimeParser {
         fromHoursSigned
       ),
 
-      // digits with separator without second value
+      // single digit with separator without second value
       new TimeParseRule(
-        /^(?<sign>-)?(?<hours>\d\d)[,.;:]$/giu,
+        /^(?<sign>-)?(?<hours>\d+(\.\d+)?)$/giu,
         value,
         fromHoursSigned
       ),
 
-      // single digit with separator without second value
+      // digits with separator with second value
       new TimeParseRule(
-        /^(?<sign>-)?(?<hours>\d)[,.;:]$/giu,
+        /^(?<sign>-)?(?<hours>\d\d)[,.;:](?<minutes>\d\d)$/giu,
         value,
-        fromHoursSigned
+        fromHoursAndMinutesSigned
       ),
     ];
 
