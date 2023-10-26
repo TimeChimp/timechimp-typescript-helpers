@@ -146,13 +146,18 @@ export class TimeParser {
 
   private parseRules(value: string): number | null {
     const rules = [
+      // 4-digit
+      new TimeParseRule(
+        /^(?<sign>-)?(?<hours>\d\d)(?<minutes>\d\d)$/giu,
+        value,
+        fromHoursAndMinutesSigned
+      ),
       // decimal value
       new TimeParseRule(
         /^(?<sign>-)?(?<decimal>\d{1,2}[.,;]?\d{0,2})$/giu,
         value,
         fromDecimalSigned
       ),
-
       // 12 hours clock, am/pm
       new TimeParseRule(
         /^(?<hours>\d{1,2}):(?<minutes>\d{2})(?<abbreviation>[ap]m)$/giu,
@@ -201,13 +206,6 @@ export class TimeParser {
       // 3-digit
       new TimeParseRule(
         /^(?<sign>-)?(?<hours>\d)(?<minutes>\d\d)$/giu,
-        value,
-        fromHoursAndMinutesSigned
-      ),
-
-      // 4-digit
-      new TimeParseRule(
-        /^(?<sign>-)?(?<hours>\d\d)(?<minutes>\d\d)$/giu,
         value,
         fromHoursAndMinutesSigned
       ),

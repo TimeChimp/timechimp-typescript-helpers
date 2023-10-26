@@ -57,6 +57,7 @@ describe('TimeEntryDurationField', () => {
       { input: '03', expectedResult: '03:00' },
       { input: '003', expectedResult: '03:00' },
       { input: '022', expectedResult: '22:00' },
+      { input: '0003', expectedResult: '00:03' },
 
       { input: '2400', expectedResult: '24:00' },
       { input: '0.3', expectedResult: '00:18' },
